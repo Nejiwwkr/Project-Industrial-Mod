@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.nejiwwkr.project_industrial.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "target": "net.minecraft.world.level.block.state.pattern.Oxidizable",
+  "mixins": [
+    "BlocksMixin",
+    "FireworkFadeMixin",
+    "FireworkMixin",
+    "OxidizableMixin"
+  ],
+  "client": [
+    "BrewingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

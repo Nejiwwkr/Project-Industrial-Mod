@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "project_industrial:chrome_block"
+    },
+    "title": {
+      "translate": "advancements.project_industrial.root.title"
+    },
+    "description": {
+      "translate": "advancements.project_industrial.root.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "project_industrial:textures/gui/advancements/backgrounds/root.png"
+  },
+  "criteria": {
+    "coal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:coal_nugget"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "coal"
+    ]
+  ]
+}

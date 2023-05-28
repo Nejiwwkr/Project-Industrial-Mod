@@ -1,0 +1,59 @@
+{
+  "parent": "project_industrial:with_coal",
+  "display": {
+    "icon": {
+      "item": "project_industrial:iron_reagent"
+    },
+    "title": {
+      "translate": "advancements.project_industrial.reagent.title"
+    },
+    "description": {
+      "translate": "advancements.project_industrial.reagent.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:iron_reagent"
+            ]
+          }
+        ]
+      }
+    },
+    "copper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:copper_reagent"
+            ]
+          }
+        ]
+      }
+    },
+    "lead": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:lead_reagent"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["iron", "copper", "lead"]
+  ]
+}

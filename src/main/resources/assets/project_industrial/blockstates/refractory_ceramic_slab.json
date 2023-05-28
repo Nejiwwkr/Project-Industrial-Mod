@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "project_industrial:block/refractory_ceramic_slab"
+    },
+    "type=double": {
+      "model": "project_industrial:block/refractory_ceramic"
+    },
+    "type=top": {
+      "model": "project_industrial:block/refractory_ceramic_slab_top"
+    }
+  }
+}

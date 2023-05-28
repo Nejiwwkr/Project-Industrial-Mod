@@ -1,0 +1,34 @@
+{
+  "replace": false,
+  "values": [
+    "project_industrial:lead_ore",
+    "project_industrial:deepslate_lead_ore",
+    "project_industrial:nickel_ore",
+    "project_industrial:deepslate_nickel_ore",
+    "project_industrial:manganese_ore",
+    "project_industrial:deepslate_manganese_ore",
+    "project_industrial:molybdenum_ore",
+    "project_industrial:deepslate_molybdenum_ore",
+    "project_industrial:chrome_ore",
+    "project_industrial:deepslate_chrome_ore",
+
+    "project_industrial:iron_reagent",
+    "project_industrial:copper_reagent",
+    "project_industrial:lead_reagent",
+
+    "project_industrial:lead_block",
+    "project_industrial:chrome_block",
+
+    "project_industrial:raw_lead_block",
+    "project_industrial:raw_manganese_block",
+
+    "project_industrial:boron_stone",
+    "project_industrial:crystallized_boron_stone",
+    "project_industrial:polished_boron_stone",
+    "project_industrial:boron_brick",
+    "project_industrial:refractory_ceramic",
+    "project_industrial:refractory_ceramic_stairs",
+    "project_industrial:refractory_ceramic_slab",
+    "project_industrial:alloy_furnace"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "project_industrial:block/raw_manganese_block"
+      }
+    ]
+  }
+}

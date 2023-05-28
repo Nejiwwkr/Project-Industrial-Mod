@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "project_industrial:boron_stone"
+    },
+    {
+      "item": "project_industrial:boron_stone"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "item": "project_industrial:boron_bucket",
+    "count": 1
+  }
+}

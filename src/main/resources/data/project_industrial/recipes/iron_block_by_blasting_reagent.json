@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 80,
+  "experience": 5,
+  "ingredient": {
+    "item": "project_industrial:iron_reagent"
+  },
+  "result": "minecraft:iron_block"
+}

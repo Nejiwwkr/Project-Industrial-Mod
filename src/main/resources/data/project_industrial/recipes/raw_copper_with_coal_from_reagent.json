@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "project_industrial:copper_reagent"
+    }
+  ],
+  "result": {
+    "item": "project_industrial:raw_copper_with_coal",
+    "count": 4
+  }
+}

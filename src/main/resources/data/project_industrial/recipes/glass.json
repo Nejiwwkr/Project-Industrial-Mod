@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "project_industrial:lead_glass_reagent"
+  },
+  "result": "minecraft:glass",
+  "experience": 0.3,
+  "cookingtime": 200
+}

@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "project_industrial:block/deepslate_lead_ore"
+      }
+    ]
+  }
+}

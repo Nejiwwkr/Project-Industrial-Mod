@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "project_industrial:coal_nugget"
+    },
+    {
+      "item": "project_industrial:raw_lead"
+    }
+  ],
+  "result": {
+    "item": "project_industrial:raw_lead_with_coal"
+  }
+}

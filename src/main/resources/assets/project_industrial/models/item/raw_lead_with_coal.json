@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "project_industrial:item/raw_lead",
+    "layer1": "project_industrial:item/with_coal"
+  }
+}

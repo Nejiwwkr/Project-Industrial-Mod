@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "project_industrial:raw_lead"
+  },
+  "result": "project_industrial:lead_ingot"
+}

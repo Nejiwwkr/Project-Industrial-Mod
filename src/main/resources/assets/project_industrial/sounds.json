@@ -1,0 +1,39 @@
+{
+  "theme_song": {
+    "subtitle": "subtitles.project_industrial.theme_song",
+    "sounds": [
+      "project_industrial:theme_song"
+    ]
+  },
+  "ulexite_sound_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "project_industrial:ulexite_sound"
+    ]
+  },
+  "ulexite_sound_place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "project_industrial:ulexite_sound"
+    ]
+  },
+  "metal_block": {
+    "subtitle": "subtitles.project_industrial.metal_block",
+    "sounds": [
+      "project_industrial:metal_block"
+    ]
+  },
+
+  "ceramic_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "project_industrial:ceramic_break"
+    ]
+  },
+  "ceramic_place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "project_industrial:ceramic_place"
+    ]
+  }
+}

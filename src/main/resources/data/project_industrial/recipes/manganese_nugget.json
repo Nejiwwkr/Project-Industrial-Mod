@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "project_industrial:manganese_ingot"
+    }
+  ],
+  "result": {
+    "item": "project_industrial:manganese_nugget",
+    "count": 9
+  }
+}

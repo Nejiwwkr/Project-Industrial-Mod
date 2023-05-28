@@ -1,0 +1,42 @@
+{
+  "parent": "project_industrial:lead_oxide",
+  "display": {
+    "icon": {
+      "item": "minecraft:potion",
+      "nbt": "{Potion:\"project_industrial:lead_solution\"}"
+    },
+    "title": {
+      "translate": "advancements.project_industrial.lead_potion.title"
+    },
+    "description": {
+      "translate": "advancements.project_industrial.lead_potion.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "lead1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:potion"
+            ],
+            "potion": "project_industrial:lead_solution"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "requirements": [
+    [
+      "lead1"
+    ]
+  ]
+}

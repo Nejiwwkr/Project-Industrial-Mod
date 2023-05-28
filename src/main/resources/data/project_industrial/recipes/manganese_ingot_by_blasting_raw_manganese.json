@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.4,
+  "ingredient": {
+    "item": "project_industrial:raw_manganese"
+  },
+  "result": "project_industrial:manganese_ingot"
+}

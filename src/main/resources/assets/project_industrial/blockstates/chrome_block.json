@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "project_industrial:block/chrome_block"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:iron_sword"
+  },
+  "addition": {
+    "item": "project_industrial:lead_oxide"
+  },
+  "result": {
+    "item": "project_industrial:lead_sword"
+  }
+}

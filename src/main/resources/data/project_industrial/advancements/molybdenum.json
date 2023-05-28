@@ -1,0 +1,62 @@
+{
+  "parent": "project_industrial:root",
+  "display": {
+    "icon": {
+      "item": "project_industrial:molybdenum_ore"
+    },
+    "title": {
+      "translate": "advancements.project_industrial.molybdenum.title"
+    },
+    "description": {
+      "translate": "advancements.project_industrial.molybdenum.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "m1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:molybdenum_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "m2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:deepslate_molybdenum_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "m3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:raw_molybdenum"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "requirements": [
+    ["m1", "m2", "m3"]
+  ]
+}

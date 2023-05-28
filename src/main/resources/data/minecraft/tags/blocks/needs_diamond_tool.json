@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "project_industrial:nickel_ore",
+    "project_industrial:deepslate_nickel_ore",
+    "project_industrial:molybdenum_ore",
+    "project_industrial:deepslate_molybdenum_ore"
+  ]
+}

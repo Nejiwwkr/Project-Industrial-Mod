@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "project_industrial:boron_fluid",
+    "project_industrial:flowing_boron_fluid"
+  ]
+}

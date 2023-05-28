@@ -1,0 +1,52 @@
+{
+  "parent": "project_industrial:with_coal",
+  "display": {
+    "icon": {
+      "item": "project_industrial:lead_ingot"
+    },
+    "title": {
+      "translate": "advancements.project_industrial.lead.title"
+    },
+    "description": {
+      "translate": "advancements.project_industrial.lead.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "lead1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:lead_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "lead2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "project_industrial:lead_block"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20
+  },
+  "requirements": [
+    [
+      "lead1","lead2"
+    ]
+  ]
+}

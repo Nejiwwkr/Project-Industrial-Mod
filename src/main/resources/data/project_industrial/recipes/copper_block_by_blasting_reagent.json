@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 80,
+  "experience": 3,
+  "ingredient": {
+    "item": "project_industrial:copper_reagent"
+  },
+  "result": "minecraft:copper_block"
+}

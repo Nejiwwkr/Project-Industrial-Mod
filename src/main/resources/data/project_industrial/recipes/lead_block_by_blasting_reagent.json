@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 80,
+  "experience": 3,
+  "ingredient": {
+    "item": "project_industrial:lead_reagent"
+  },
+  "result": "project_industrial:lead_block"
+}

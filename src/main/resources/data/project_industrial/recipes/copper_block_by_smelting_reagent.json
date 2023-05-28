@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 160,
+  "experience": 3,
+  "ingredient": {
+    "item": "project_industrial:copper_reagent"
+  },
+  "result": "minecraft:copper_block"
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "project_industrial:iron_reagent",
+    "project_industrial:copper_reagent",
+    "project_industrial:boron_brick"
+  ]
+}

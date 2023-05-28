@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 20,
+  "experience": 0.05,
+  "ingredient": {
+    "item": "project_industrial:boron_stone"
+  },
+  "result": "project_industrial:borax"
+}

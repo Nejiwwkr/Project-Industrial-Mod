@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "project_industrial:raw_manganese_block"
+    }
+  ],
+  "result": {
+    "item": "project_industrial:raw_manganese",
+    "count": 9
+  }
+}

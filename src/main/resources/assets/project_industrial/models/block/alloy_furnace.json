@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "project_industrial:block/alloy_furnace_front",
+    "south": "project_industrial:block/alloy_furnace_front",
+    "east": "project_industrial:block/alloy_furnace_front",
+    "west": "project_industrial:block/alloy_furnace_front",
+    "up": "project_industrial:block/alloy_furnace_upper",
+    "down": "project_industrial:block/alloy_furnace_sides"
+  }
+}

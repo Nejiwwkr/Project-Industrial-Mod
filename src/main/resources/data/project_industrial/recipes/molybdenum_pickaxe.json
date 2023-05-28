@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    " K ",
+    " K "
+  ],
+  "key": {
+    "X": {
+      "item": "project_industrial:molybdenum_ingot"
+    },
+    "K": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "project_industrial:molybdenum_pickaxe",
+    "count": 1
+  }
+}

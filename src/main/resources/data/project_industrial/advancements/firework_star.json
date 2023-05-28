@@ -1,0 +1,81 @@
+{
+  "parent": "project_industrial:potassium",
+  "display": {
+    "icon": {
+      "item": "minecraft:firework_star",
+      "nbt": "{Explosion:{Colors:[I;-5799457],Type:0b}}"
+    },
+    "title": {
+      "translate": "advancements.project_industrial.firework_star.title"
+    },
+    "description": {
+      "translate": "advancements.project_industrial.firework_star.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "star": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:firework_star"
+            ],
+            "nbt": "{Explosion:{Colors:[I;-5799457],Type:0b}}"
+          }
+        ]
+      }
+    },
+    "star1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:firework_star"
+            ],
+            "nbt": "{Explosion:{Colors:[I;-5799457],Type:1b}}"
+          }
+        ]
+      }
+    },
+    "star2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:firework_star"
+            ],
+            "nbt": "{Explosion:{Colors:[I;-5799457],Type:2b}}"
+          }
+        ]
+      }
+    },
+    "star3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:firework_star"
+            ],
+            "nbt": "{Explosion:{Colors:[I;-5799457],Type:2b}}"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 30
+  },
+  "requirements": [
+    [
+      "star","star1","star2","star3"
+    ]
+  ]
+}

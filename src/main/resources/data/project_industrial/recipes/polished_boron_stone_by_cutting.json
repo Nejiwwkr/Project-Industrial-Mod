@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "project_industrial:crystallized_boron_stone"
+  },
+  "result": "project_industrial:polished_boron_stone",
+  "count": 1
+}

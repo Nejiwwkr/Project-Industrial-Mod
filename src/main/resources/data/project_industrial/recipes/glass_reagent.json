@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:sand"
+    },
+    {
+      "tag": "minecraft:sand"
+    },
+    {
+      "tag": "minecraft:sand"
+    },
+    {
+      "tag": "minecraft:sand"
+    },
+    {
+      "tag": "minecraft:sand"
+    },
+    {
+      "item": "project_industrial:borax"
+    },
+    {
+      "item": "project_industrial:calcium_oxide"
+    },
+    {
+      "item": "project_industrial:raw_potassium_carbonate"
+    },
+    {
+      "item": "project_industrial:lead_oxide"
+    }
+  ],
+  "result": {
+    "item": "project_industrial:lead_glass_reagent",
+    "count": 9
+  }
+}

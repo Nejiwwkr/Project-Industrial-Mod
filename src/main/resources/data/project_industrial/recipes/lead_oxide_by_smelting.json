@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 2,
+  "ingredient": {
+    "item": "project_industrial:lead_nugget"
+  },
+  "result": "project_industrial:lead_oxide"
+}

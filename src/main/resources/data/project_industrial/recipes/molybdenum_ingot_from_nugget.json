@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "project_industrial:molybdenum_nugget"
+    }
+  },
+  "result": {
+    "item": "project_industrial:molybdenum_ingot",
+    "count": 1
+  }
+}

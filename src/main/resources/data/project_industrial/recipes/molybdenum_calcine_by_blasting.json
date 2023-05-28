@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "project_industrial:raw_molybdenum"
+  },
+  "result": "project_industrial:molybdenum_calcine"
+}

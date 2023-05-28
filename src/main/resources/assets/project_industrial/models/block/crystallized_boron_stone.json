@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "project_industrial:block/crystallized_boron_stone"
+  }
+}

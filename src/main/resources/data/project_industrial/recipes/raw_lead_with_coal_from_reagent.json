@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "project_industrial:lead_reagent"
+    }
+  ],
+  "result": {
+    "item": "project_industrial:raw_lead_with_coal",
+    "count": 4
+  }
+}
