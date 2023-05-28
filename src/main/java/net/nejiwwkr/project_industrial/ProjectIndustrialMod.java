@@ -74,6 +74,7 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Item LEAD_GLASS_REAGENT = new Item(COMPOUND_SETTINGS);
 	public static final Item MOLYBDENUM_CALCINE = new ChemicalItemWithColor(0xffabcd98,"molybdenum_olivine");
 
+
 	//BORON
 	public static final Block BORON_STONE = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(0.1F,0.5F).sounds(ULEXITE_BSG));
 	public static final BlockItem BORON_STONE_ITEM = new BlockItem(BORON_STONE,new FabricItemSettings());
