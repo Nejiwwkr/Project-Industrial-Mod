@@ -27,9 +27,6 @@ public class SaltpeteredBlock extends Block {
         world.setBlockState(pos,originBlock.getDefaultState());
 
         player.giveItemStack(new ItemStack(RAW_POTASSIUM_CARBONATE,1));
-        //ItemEntity i = player.dropItem(new ItemStack(RAW_POTASSIUM_CARBONATE, 1), true, false);
-        //if (i != null) i.teleport(pos.getX(), pos.getY() + 0.9, pos.getZ());
-
         return ActionResult.SUCCESS;
     }
 }

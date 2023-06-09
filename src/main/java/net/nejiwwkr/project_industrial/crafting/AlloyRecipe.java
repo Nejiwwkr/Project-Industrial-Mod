@@ -55,6 +55,7 @@ public class AlloyRecipe {
         return res;
     }
 
+    @Deprecated
     public static void addRecipe (AlloyRecipe a) {
         recipes.add(a);
     }

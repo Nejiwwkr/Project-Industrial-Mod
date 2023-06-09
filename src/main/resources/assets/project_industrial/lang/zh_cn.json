@@ -113,9 +113,13 @@
 
   "color.project_industrial.firework": "可以添加到烟火之星",
   "color.project_industrial.potassium_purple": "焰色：浅紫色",
+  "color.project_industrial.potassium_purple.star": "钾-浅紫色",
   "color.project_industrial.calcium_orange": "焰色：砖红色",
+  "color.project_industrial.calcium_orange.star": "钙-砖红色",
   "color.project_industrial.molybdenum_olivine": "焰色：淡黄绿色",
+  "color.project_industrial.molybdenum_olivine.star": "钼-淡黄绿色",
   "color.project_industrial.lead_light_blue": "焰色：蓝灰色",
+  "color.project_industrial.lead_light_blue.star": "铅-蓝灰色",
 
   "tip.has_nbt": "该物品有nbt：",
   "tip.null_nbt": "该物品无nbt。"

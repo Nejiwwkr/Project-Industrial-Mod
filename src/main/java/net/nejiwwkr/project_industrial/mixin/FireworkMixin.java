@@ -30,7 +30,7 @@ public class FireworkMixin {
 
     /**
      * @author Nejiwwkr
-     * @reason 增加额外颜色
+     * @reason Adding extra color for fireworks
      */
     @Overwrite
     public ItemStack craft(CraftingInventory craftingInventory) {

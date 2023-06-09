@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.COMPOUND_SETTINGS;
+import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.*;
 
 /**
  * <p>具有焰色反应的化合物</p>

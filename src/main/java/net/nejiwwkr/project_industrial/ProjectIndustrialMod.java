@@ -41,8 +41,8 @@ public class ProjectIndustrialMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger("project_industrial");
 	public static final String MOD_ID = "project_industrial";
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final Item.Settings COMPOUND_SETTINGS = new FabricItemSettings().maxCount(16);
 
 	public static final Item COAL_NUGGET = new CoalNuggetItem();
@@ -67,12 +67,12 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Item NICKEL_NUGGET = new NuggetItem(MetalType.NICKEL);
 	public static final Item NICKEL_INGOT = new IngotItem(MetalType.NICKEL);
 
-	public static final Item LEAD_OXIDE = new ChemicalItemWithColor(0xff989ccd,"lead_light_blue");
-	public static final Item CALCIUM_OXIDE = new ChemicalItemWithColor(0xffec6941,"calcium_orange");
+	public static final ChemicalItemWithColor LEAD_OXIDE = new ChemicalItemWithColor(0xff989ccd,"lead_light_blue");
+	public static final ChemicalItemWithColor CALCIUM_OXIDE = new ChemicalItemWithColor(0xffec6941,"calcium_orange");
 	public static final Item POTASH = new Item(COMPOUND_SETTINGS);
-	public static final Item RAW_POTASSIUM_CARBONATE = new ChemicalItemWithColor(0xffa781df,"potassium_purple");
+	public static final ChemicalItemWithColor RAW_POTASSIUM_CARBONATE = new ChemicalItemWithColor(0xffa781df,"potassium_purple");
 	public static final Item LEAD_GLASS_REAGENT = new Item(COMPOUND_SETTINGS);
-	public static final Item MOLYBDENUM_CALCINE = new ChemicalItemWithColor(0xffabcd98,"molybdenum_olivine");
+	public static final ChemicalItemWithColor MOLYBDENUM_CALCINE = new ChemicalItemWithColor(0xffabcd98,"molybdenum_olivine");
 
 
 	//BORON
@@ -181,7 +181,7 @@ public class ProjectIndustrialMod implements ModInitializer {
 
 		Sounds.init();
 		ModFluids.init();
-
+		
 		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"coal_nugget"),COAL_NUGGET);
 		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"raw_iron_with_coal"),RAW_IRON_WITH_COAL);
 		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"iron_reagent"),IRON_REAGENT);

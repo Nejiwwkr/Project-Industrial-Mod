@@ -113,9 +113,13 @@
 
   "color.project_industrial.firework": "Can be added into firework star",
   "color.project_industrial.potassium_purple": "Flame Color: Light Purple",
-  "color.project_industrial.calcium_orange": "Flame Color:　Brick-red",
+  "color.project_industrial.potassium_purple.star": "Potassium - Light Purple",
+  "color.project_industrial.calcium_orange": "Flame Color: Brick-red",
+  "color.project_industrial.calcium_orange.star": "Calcium - Brick-red",
   "color.project_industrial.molybdenum_olivine": "Flame Color: Light Olivine",
+  "color.project_industrial.molybdenum_olivine.star": "Molybdenum - Light Olivine",
   "color.project_industrial.lead_light_blue": "Flame Color: Light Blue",
+  "color.project_industrial.lead_light_blue.star": "Lead - Light Blue",
 
   "tip.has_nbt": "This item has nbt:",
   "tip.null_nbt": "This item has no nbt."

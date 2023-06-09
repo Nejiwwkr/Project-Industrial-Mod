@@ -9,7 +9,7 @@ import net.nejiwwkr.project_industrial.util.Testing;
 
 import java.util.Random;
 
-public class SaltpeterableBlock extends Block {
+public class SaltpeterableBlock extends Block{
     private final Block goalBlock;
     private int currentTick;
     public static final int TICK_TIME = 20*5;
