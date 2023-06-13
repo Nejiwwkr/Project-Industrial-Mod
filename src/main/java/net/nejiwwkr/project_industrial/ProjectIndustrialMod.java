@@ -24,7 +24,8 @@ import net.nejiwwkr.project_industrial.block.LeadGlass;
 import net.nejiwwkr.project_industrial.block.SaltpeteredBlock;
 import net.nejiwwkr.project_industrial.block.entity.AlloyFurnaceBlockEntity;
 import net.nejiwwkr.project_industrial.crafting.alloy.MetalType;
-import net.nejiwwkr.project_industrial.effect.*;
+import net.nejiwwkr.project_industrial.effect.AntidoteStatusEffect;
+import net.nejiwwkr.project_industrial.effect.LeadStatusEffect;
 import net.nejiwwkr.project_industrial.enchantment.LeadPoisonEnchantment;
 import net.nejiwwkr.project_industrial.fluid.ModFluids;
 import net.nejiwwkr.project_industrial.item.*;
@@ -238,4 +239,3 @@ public class ProjectIndustrialMod implements ModInitializer {
 		Tools.init();
 	}
 }
-

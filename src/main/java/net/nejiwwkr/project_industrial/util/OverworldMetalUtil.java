@@ -187,7 +187,7 @@ public class OverworldMetalUtil {
     private static final MetalFactory MANGANESE_FACTORY =  new MetalFactory(MetalPos.OVERWORLD,"manganese");
     private static final MetalFactory MOLYBDENUM_FACTORY =  new MetalFactory(MetalPos.OVERWORLD,"molybdenum");
     private static final MetalFactory CHROME_FACTORY =  new MetalFactory(MetalPos.OVERWORLD,"chrome");
-
+    public static final MetalFactory[] INSTANCES = {LEAD_FACTORY,NICKEL_FACTORY,MANGANESE_FACTORY,MOLYBDENUM_FACTORY,CHROME_FACTORY};
 
 
     /**

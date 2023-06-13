@@ -5,7 +5,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.nejiwwkr.project_industrial.util.annotation.Essential;
 
-import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.*;
 import static net.nejiwwkr.project_industrial.util.OverworldMetalUtil.CreateOverworldOreAndRegistryFeatures;
 
 public class MetalFactory {
@@ -25,6 +24,7 @@ public class MetalFactory {
     private Block metalReagent;
     private BlockItem metalReagentItem;
     private final MetalPos pos;
+    private boolean initInvoked = false;
 
     MetalFactory(MetalPos pos,String metalName) {
         this.metalName = metalName;
@@ -71,23 +71,20 @@ public class MetalFactory {
     }
 
     @Essential
-    public MetalFactory init() {
+    public void init() {
         OverworldMetalUtil.RegistryOverworldMetalRelatives(metalName,rawMetal, rawMetalWithCoal, metalIngot, metalNugget, metalOre, metalOreItem, deepslateMetalOre, deepslateMetalOreItem, rawMetalBlock, rawMetalBlockItem, metalBlock, metalBlockItem, metalReagent, metalReagentItem);
-        return this;
+        this.initInvoked = true;
     }
 
-    public static void main(String[] args) {
-        MetalFactory LEAD_FACTORY = new MetalFactory(MetalPos.OVERWORLD,"lead")
-                .appendRawMetal(RAW_LEAD,RAW_LEAD_BLOCK,RAW_LEAD_BLOCK_ITEM)
-                .appendReagent(RAW_LEAD_WITH_COAL,LEAD_REAGENT,LEAD_REAGENT_ITEM)
-                .appendBlock(LEAD_BLOCK,LEAD_BLOCK_ITEM)
-                .appendIngot(LEAD_INGOT,LEAD_NUGGET)
-                .appendOre(LEAD_ORE,LEAD_ORE_ITEM,DEEPSLATE_LEAD_ORE,DEEPSLATE_LEAD_ORE_ITEM)
-                .worldGen(OreRarity.NORMAL,64)
-                .init();
-    }
+    //static {
+    //    for (MetalFactory m : OverworldMetalUtil.INSTANCES) if (!m.initInvoked) throw new EssentialMethodNotInvokedException(MetalFactory.class);
+    //}
 }
 
 enum MetalPos {
-    OVERWORLD, NETHERLANDS, END;
+    OVERWORLD,
+    @Deprecated
+    NETHERLANDS,
+    @Deprecated
+    END
 }
