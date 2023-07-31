@@ -43,7 +43,3 @@ Also,some special recipes like stainless steel will be added in.
 | 1.17-   | x           |
 | 1.18.2  | √           |
 | 1.19.2  | √           |
-
-## License
-
-This template is available under the CC0 license.
