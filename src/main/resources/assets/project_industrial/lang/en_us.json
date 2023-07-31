@@ -16,10 +16,14 @@
   "item.project_industrial.lead_nugget": "Lead Nugget",
   "item.project_industrial.lead_oxide": "Lead Oxide",
   "item.project_industrial.manganese_ingot": "Manganese Ingot",
+  "item.project_industrial.manganese_nugget": "Manganese Nugget",
   "item.project_industrial.raw_manganese": "Raw Manganese",
   "item.project_industrial.chrome_ingot": "Chrome Ingot",
+  "item.project_industrial.chrome_nugget": "Chrome Nugget",
   "item.project_industrial.nickel_ingot": "Nickel Ingot",
+  "item.project_industrial.nickel_nugget": "Nickel Nugget",
   "item.project_industrial.molybdenum_ingot": "Molybdenum Ingot",
+  "item.project_industrial.molybdenum_nugget": "Molybdenum Nugget",
   "item.project_industrial.raw_molybdenum": "Raw Molybdenite",
   "item.project_industrial.calcium_oxide": "Calcium Oxide",
   "item.project_industrial.potash": "Potash",
@@ -29,6 +33,9 @@
   "item.project_industrial.nickel_crucible": "Nickel Crucible",
   "item.project_industrial.boron_bucket":"Boron-rich Water Bucket",
   "item.project_industrial.molybdenum_calcine":"Molybdenum Calcine",
+  "item.project_industrial.molybdenum_reagent":"Molybdenum Reagent",
+  "block.project_industrial.lead_glass":"Lead Glass",
+  "block.project_industrial.lead_glass.tips":"Thicker texture, more transparent but the border is also more eye-catching",
 
   "item.minecraft.potion.effect.apple_vinegar": "Apple Vinegar",
   "item.minecraft.splash_potion.effect.apple_vinegar": "Splash Apple Vinegar",
@@ -76,6 +83,8 @@
   "effect.project_industrial.lead_poison": "Acute Lead Poison",
 
   "enchantment.project_industrial.lead_poison_enchantment": "Lead Plated",
+  "enchantment.project_industrial.hand_in_enchantment": "Hand　In",
+  "enchantment.project_industrial.plasma_enchantment": "Plasma",
 
   "death.attack.chemical": "%1$s died from a chemical",
 
@@ -96,6 +105,8 @@
   "advancements.project_industrial.firework_star.description": "Color fireworks by flame reaction",
   "advancements.project_industrial.glass.title": "Aesthetic Enjoyment",
   "advancements.project_industrial.glass.description": "Get glass by smelting the glass reagent",
+  "advancements.project_industrial.lead_glass.title": "Och!",
+  "advancements.project_industrial.lead_glass.description": "Break a lead glass without the silk touch enchantment",
   "advancements.project_industrial.with_coal.title": "Reducing",
   "advancements.project_industrial.with_coal.description": "Reduce raw ore by coal",
   "advancements.project_industrial.reagent.title": "Mass Production",
@@ -122,5 +133,11 @@
   "color.project_industrial.lead_light_blue.star": "Lead - Light Blue",
 
   "tip.has_nbt": "This item has nbt:",
-  "tip.null_nbt": "This item has no nbt."
+  "tip.null_nbt": "This item has no nbt.",
+  "project_industrial.tip.l": "Hold ",
+  "project_industrial.tip.r": " for extra information & tips",
+  "project_industrial.sum.l": "Hold ",
+  "project_industrial.sum.r": " for summary",
+  "project_industrial.info.l": "Hold ",
+  "project_industrial.info.r": " for detailed information"
 }

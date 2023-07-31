@@ -29,6 +29,7 @@
     "project_industrial:refractory_ceramic",
     "project_industrial:refractory_ceramic_stairs",
     "project_industrial:refractory_ceramic_slab",
-    "project_industrial:alloy_furnace"
+    "project_industrial:alloy_furnace",
+    "project_industrial:lead_glass"
   ]
 }

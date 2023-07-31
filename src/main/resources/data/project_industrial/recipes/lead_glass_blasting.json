@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "project_industrial:lead_glass_reagent"
+  },
+  "result": "project_industrial:lead_glass",
+  "experience": 0.4,
+  "cookingtime": 100
+}

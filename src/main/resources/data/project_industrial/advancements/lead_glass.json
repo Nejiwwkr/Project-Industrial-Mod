@@ -1,0 +1,36 @@
+{
+  "parent": "project_industrial:glass",
+  "display": {
+    "icon": {
+      "item": "project_industrial:lead_glass"
+    },
+    "title": {
+      "translate": "advancements.project_industrial.lead_glass.title"
+    },
+    "description": {
+      "translate": "advancements.project_industrial.lead_glass.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "lead_glass": {
+      "trigger": "minecraft:impossible",
+      "conditions": {
+        "trigger_data": {
+          "state": false
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "requirements": [
+    [
+      "lead_glass"
+    ]
+  ]
+}

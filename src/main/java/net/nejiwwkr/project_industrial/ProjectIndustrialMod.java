@@ -7,18 +7,24 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.MusicDiscItem;
 import net.minecraft.potion.Potion;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 import net.nejiwwkr.project_industrial.block.AlloyFurnaceBlock;
 import net.nejiwwkr.project_industrial.block.LeadGlass;
 import net.nejiwwkr.project_industrial.block.SaltpeteredBlock;
@@ -26,14 +32,21 @@ import net.nejiwwkr.project_industrial.block.entity.AlloyFurnaceBlockEntity;
 import net.nejiwwkr.project_industrial.crafting.alloy.MetalType;
 import net.nejiwwkr.project_industrial.effect.AntidoteStatusEffect;
 import net.nejiwwkr.project_industrial.effect.LeadStatusEffect;
+import net.nejiwwkr.project_industrial.enchantment.HandInEnchantment;
 import net.nejiwwkr.project_industrial.enchantment.LeadPoisonEnchantment;
+import net.nejiwwkr.project_industrial.enchantment.PlasmaEnchantment;
 import net.nejiwwkr.project_industrial.fluid.ModFluids;
 import net.nejiwwkr.project_industrial.item.*;
+import net.nejiwwkr.project_industrial.item.abstract_mod_item.InstructType;
+import net.nejiwwkr.project_industrial.item.abstract_mod_item.ProjectIndustrialInstructedBlockItem;
 import net.nejiwwkr.project_industrial.item.instances.Tools;
 import net.nejiwwkr.project_industrial.screen.handler.AlloyFurnaceBlockScreenHandler;
+import net.nejiwwkr.project_industrial.util.C;
 import net.nejiwwkr.project_industrial.util.OverworldMetalUtil;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.List;
 
 import static net.nejiwwkr.project_industrial.Sounds.*;
 
@@ -42,8 +55,7 @@ public class ProjectIndustrialMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final String MOD_ID = "project_industrial";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final Logger LOGGER = LoggerFactory.getLogger(C.MOD_ID);
 	public static final Item.Settings COMPOUND_SETTINGS = new FabricItemSettings().maxCount(16);
 
 	public static final Item COAL_NUGGET = new CoalNuggetItem();
@@ -64,16 +76,17 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Item RAW_MOLYBDENUM = new Item(new FabricItemSettings());
 	public static final Item MOLYBDENUM_NUGGET = new NuggetItem(MetalType.MOLYBDENUM);
 	public static final Item MOLYBDENUM_INGOT = new IngotItem(MetalType.MOLYBDENUM);
+	public static final Item MOLYBDENUM_REAGENT = new Item(new FabricItemSettings());
 	//NICKEL
 	public static final Item NICKEL_NUGGET = new NuggetItem(MetalType.NICKEL);
 	public static final Item NICKEL_INGOT = new IngotItem(MetalType.NICKEL);
 
-	public static final ChemicalItemWithColor LEAD_OXIDE = new ChemicalItemWithColor(0xff989ccd,"lead_light_blue");
-	public static final ChemicalItemWithColor CALCIUM_OXIDE = new ChemicalItemWithColor(0xffec6941,"calcium_orange");
+	public static final ChemicalItemWithColor LEAD_OXIDE = new ChemicalItemWithColor(C.color.Pb,"lead_light_blue");
+	public static final ChemicalItemWithColor CALCIUM_OXIDE = new ChemicalItemWithColor(C.color.Ca,"calcium_orange");
 	public static final Item POTASH = new Item(COMPOUND_SETTINGS);
-	public static final ChemicalItemWithColor RAW_POTASSIUM_CARBONATE = new ChemicalItemWithColor(0xffa781df,"potassium_purple");
+	public static final ChemicalItemWithColor RAW_POTASSIUM_CARBONATE = new ChemicalItemWithColor(C.color.K,"potassium_purple");
 	public static final Item LEAD_GLASS_REAGENT = new Item(COMPOUND_SETTINGS);
-	public static final ChemicalItemWithColor MOLYBDENUM_CALCINE = new ChemicalItemWithColor(0xffabcd98,"molybdenum_olivine");
+	public static final ChemicalItemWithColor MOLYBDENUM_CALCINE = new ChemicalItemWithColor(C.color.Mo,"molybdenum_olivine");
 
 
 	//BORON
@@ -145,11 +158,17 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Block ALLOY_FURNACE = new AlloyFurnaceBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.5f,4));
 	public static final BlockItem ALLOY_FURNACE_ITEM = new BlockItem(ALLOY_FURNACE,new FabricItemSettings());
 
-	public static final Block LEAD_GLASS = new LeadGlass(FabricBlockSettings.copy(Blocks.GLASS).blockVision(AbstractBlock.AbstractBlockState::isTranslucent));
-	public static final BlockItem LEAD_GLASS_ITEM = new BlockItem(LEAD_GLASS,new FabricItemSettings());
+	public static final Block LEAD_GLASS = new LeadGlass(FabricBlockSettings.copy(Blocks.GLASS).blockVision(AbstractBlock.AbstractBlockState::isTranslucent).requiresTool().strength(0.9F,2F));
+	public static final ProjectIndustrialInstructedBlockItem LEAD_GLASS_ITEM = new  ProjectIndustrialInstructedBlockItem(LEAD_GLASS,new FabricItemSettings()){
+		@Override
+		public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+			this.setTips(new TranslatableText("block.project_industrial.lead_glass.tips").formatted(Formatting.GRAY));
+
+			appendToolInstruct(stack,world,tooltip,context, InstructType.Shift);
+		}
+	};
 
 	public static final StatusEffect LEAD_POISON = new LeadStatusEffect();
-	public static final Enchantment LEAD_POISON_ENCHANTMENT = new LeadPoisonEnchantment();
 	public static final Potion LEAD_SOLUTION = new Potion(
 			"lead_solution",
 			new StatusEffectInstance(LEAD_POISON,2400,0));
@@ -164,9 +183,13 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static BlockEntityType<AlloyFurnaceBlockEntity> ALLOY_FURNACE_ENTITY;
 	public static ScreenHandlerType<AlloyFurnaceBlockScreenHandler> AF_SCREEN_HANDLER;
 
+	public static final Enchantment LEAD_POISON_ENCHANTMENT = new LeadPoisonEnchantment();
+	public static final Enchantment HAND_IN_ENCHANTMENT = new HandInEnchantment();
+	public static final Enchantment PLASMA_ENCHANTMENT = new PlasmaEnchantment();
+
 	static {
 		//noinspection deprecation
-		AF_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(MOD_ID,"alloy_furnace"), AlloyFurnaceBlockScreenHandler::new);
+		AF_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(C.MOD_ID,"alloy_furnace"), AlloyFurnaceBlockScreenHandler::new);
 	}
 
 	//TODO 红砖块与芒硝
@@ -178,61 +201,71 @@ public class ProjectIndustrialMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		ALLOY_FURNACE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,new Identifier(MOD_ID,"alloy_furnace_entity"), FabricBlockEntityTypeBuilder.create(AlloyFurnaceBlockEntity::new,ALLOY_FURNACE).build(null));
+		ALLOY_FURNACE_ENTITY = Registry.register(
+				Registry.BLOCK_ENTITY_TYPE,
+				new Identifier(C.MOD_ID,"alloy_furnace_entity"),
+				FabricBlockEntityTypeBuilder.create(AlloyFurnaceBlockEntity::new,ALLOY_FURNACE).build(null)
+		);
 
 		Sounds.init();
 		ModFluids.init();
 		
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"coal_nugget"),COAL_NUGGET);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"raw_iron_with_coal"),RAW_IRON_WITH_COAL);
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"iron_reagent"),IRON_REAGENT);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"iron_reagent"),IRON_REAGENT_ITEM);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"raw_copper_with_coal"),RAW_COPPER_WITH_COAL);
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"copper_reagent"),COPPER_REAGENT);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"copper_reagent"),COPPER_REAGENT_ITEM);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"coal_nugget"),COAL_NUGGET);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"raw_iron_with_coal"),RAW_IRON_WITH_COAL);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"iron_reagent"),IRON_REAGENT);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"iron_reagent"),IRON_REAGENT_ITEM);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"raw_copper_with_coal"),RAW_COPPER_WITH_COAL);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"copper_reagent"),COPPER_REAGENT);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"copper_reagent"),COPPER_REAGENT_ITEM);
 
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"lead_oxide"),LEAD_OXIDE);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"calcium_oxide"),CALCIUM_OXIDE);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"potash"),POTASH);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"raw_potassium_carbonate"),RAW_POTASSIUM_CARBONATE);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"lead_glass_reagent"),LEAD_GLASS_REAGENT);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"borax"),BORAX);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"molybdenum_calcine"),MOLYBDENUM_CALCINE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"lead_oxide"),LEAD_OXIDE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"calcium_oxide"),CALCIUM_OXIDE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"potash"),POTASH);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"raw_potassium_carbonate"),RAW_POTASSIUM_CARBONATE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"lead_glass_reagent"),LEAD_GLASS_REAGENT);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"borax"),BORAX);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_calcine"),MOLYBDENUM_CALCINE);
 
 		//BORON
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"boron_stone"),BORON_STONE);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"boron_stone"),BORON_STONE_ITEM);
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"crystallized_boron_stone"),CRYSTALLIZED_BORON_STONE);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"crystallized_boron_stone"),CRYSTALLIZED_BORON_STONE_ITEM);
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"polished_boron_stone"),POLISHED_BORON_STONE);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"polished_boron_stone"),POLISHED_BORON_STONE_ITEM);
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"boron_brick"),BORON_BRICK);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"boron_brick"),BORON_BRICK_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"boron_stone"),BORON_STONE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"boron_stone"),BORON_STONE_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"crystallized_boron_stone"),CRYSTALLIZED_BORON_STONE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"crystallized_boron_stone"),CRYSTALLIZED_BORON_STONE_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"polished_boron_stone"),POLISHED_BORON_STONE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"polished_boron_stone"),POLISHED_BORON_STONE_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"boron_brick"),BORON_BRICK);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"boron_brick"),BORON_BRICK_ITEM);
 
 		//CERAMIC
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"refractory_ceramic"),REFRACTORY_CERAMIC);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"refractory_ceramic"),REFRACTORY_CERAMIC_ITEM);
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"refractory_ceramic_stairs"),REFRACTORY_CERAMIC_STAIR);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"refractory_ceramic_stairs"),REFRACTORY_CERAMIC_STAIR_ITEM);
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"refractory_ceramic_slab"),REFRACTORY_CERAMIC_SLAB);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"refractory_ceramic_slab"),REFRACTORY_CERAMIC_SLAB_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"refractory_ceramic"),REFRACTORY_CERAMIC);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"refractory_ceramic"),REFRACTORY_CERAMIC_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"refractory_ceramic_stairs"),REFRACTORY_CERAMIC_STAIR);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"refractory_ceramic_stairs"),REFRACTORY_CERAMIC_STAIR_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"refractory_ceramic_slab"),REFRACTORY_CERAMIC_SLAB);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"refractory_ceramic_slab"),REFRACTORY_CERAMIC_SLAB_ITEM);
 
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"nickel_crucible"),NICKEL_CRUCIBLE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"nickel_crucible"),NICKEL_CRUCIBLE);
 
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"saltpetering_bricks"),SALTPETERING_BRICKS);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"saltpetering_bricks"),SALTPETERING_BRICKS_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"saltpetering_bricks"),SALTPETERING_BRICKS);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"saltpetering_bricks"),SALTPETERING_BRICKS_ITEM);
 
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"alloy_furnace"),ALLOY_FURNACE);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"alloy_furnace"),ALLOY_FURNACE_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"alloy_furnace"),ALLOY_FURNACE);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"alloy_furnace"),ALLOY_FURNACE_ITEM);
 
-		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"lead_glass"),LEAD_GLASS);
-		Registry.register(Registry.ITEM,new Identifier(MOD_ID,"lead_glass"),LEAD_GLASS_ITEM);
+		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"lead_glass"),LEAD_GLASS);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"lead_glass"),LEAD_GLASS_ITEM);
 
-		Registry.register(Registry.STATUS_EFFECT,new Identifier(MOD_ID,"lead_poison"),LEAD_POISON);
-		Registry.register(Registry.ENCHANTMENT,new Identifier(MOD_ID,"lead_poison_enchantment"),LEAD_POISON_ENCHANTMENT);
-		Registry.register(Registry.POTION,new Identifier(MOD_ID,"lead_solution"),LEAD_SOLUTION);
-		Registry.register(Registry.STATUS_EFFECT,new Identifier(MOD_ID,"antidote"),ANTIDOTE);
-		Registry.register(Registry.POTION,new Identifier(MOD_ID,"apple_vinegar"),APPLE_VINEGAR);
+		Registry.register(Registry.STATUS_EFFECT,new Identifier(C.MOD_ID,"lead_poison"),LEAD_POISON);
+		Registry.register(Registry.POTION,new Identifier(C.MOD_ID,"lead_solution"),LEAD_SOLUTION);
+		Registry.register(Registry.STATUS_EFFECT,new Identifier(C.MOD_ID,"antidote"),ANTIDOTE);
+		Registry.register(Registry.POTION,new Identifier(C.MOD_ID,"apple_vinegar"),APPLE_VINEGAR);
+
+		Registry.register(Registry.ENCHANTMENT,new Identifier(C.MOD_ID,"lead_poison_enchantment"),LEAD_POISON_ENCHANTMENT);
+		Registry.register(Registry.ENCHANTMENT,new Identifier(C.MOD_ID,"hand_in_enchantment"),HAND_IN_ENCHANTMENT);
+		Registry.register(Registry.ENCHANTMENT,new Identifier(C.MOD_ID,"plasma_enchantment"),PLASMA_ENCHANTMENT);
+
+		//special
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_reagent"),MOLYBDENUM_REAGENT);
 
 		OverworldMetalUtil.init();
 		ItemGroups.init();

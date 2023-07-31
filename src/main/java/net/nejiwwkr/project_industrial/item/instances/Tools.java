@@ -7,8 +7,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.nejiwwkr.project_industrial.item.LeadSword;
 import net.nejiwwkr.project_industrial.material.MolybdenumMaterial;
+import net.nejiwwkr.project_industrial.util.C;
 
-import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.MOD_ID;
 
 public class Tools {
     public static final ToolItem LEAD_SWORD = new LeadSword();
@@ -20,7 +20,7 @@ public class Tools {
     public static final ToolItem MOLYBDENUM_HOE = new MolybdenumHoe();
 
     public static final FabricItemGroupBuilder PROJECT_INDUSTRIAL_ITEM_GROUP_TOOLS = FabricItemGroupBuilder
-            .create(new Identifier(MOD_ID,"item_tab_tools"))
+            .create(new Identifier(C.MOD_ID,"item_tab_tools"))
             .icon(() -> new ItemStack(LEAD_SWORD))
             .appendItems(stacks -> {
                 Item[] ITEMS =new Item[]{
@@ -33,12 +33,12 @@ public class Tools {
 
 
     public static void init(){
-        Registry.register(Registry.ITEM,new Identifier(MOD_ID,"lead_sword"),LEAD_SWORD);
-        Registry.register(Registry.ITEM,new Identifier(MOD_ID,"molybdenum_sword"),MOLYBDENUM_SWORD);
-        Registry.register(Registry.ITEM,new Identifier(MOD_ID,"molybdenum_pickaxe"),MOLYBDENUM_PICKAXE);
-        Registry.register(Registry.ITEM,new Identifier(MOD_ID,"molybdenum_axe"),MOLYBDENUM_AXE);
-        Registry.register(Registry.ITEM,new Identifier(MOD_ID,"molybdenum_shovel"),MOLYBDENUM_SHOVEL);
-        Registry.register(Registry.ITEM,new Identifier(MOD_ID,"molybdenum_hoe"),MOLYBDENUM_HOE);
+        Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"lead_sword"),LEAD_SWORD);
+        Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_sword"),MOLYBDENUM_SWORD);
+        Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_pickaxe"),MOLYBDENUM_PICKAXE);
+        Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_axe"),MOLYBDENUM_AXE);
+        Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_shovel"),MOLYBDENUM_SHOVEL);
+        Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_hoe"),MOLYBDENUM_HOE);
 
         PROJECT_INDUSTRIAL_ITEM_GROUP_TOOLS.build();
     }

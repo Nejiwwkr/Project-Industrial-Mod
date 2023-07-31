@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "project_industrial:coal_nugget"
+    },
+    {
+      "item": "project_industrial:coal_nugget"
+    },
+    {
+      "item": "project_industrial:coal_nugget"
+    },
+    {
+      "item": "project_industrial:coal_nugget"
+    },
+    {
+      "item": "project_industrial:molybdenum_calcine"
+    },
+    {
+      "item": "project_industrial:molybdenum_calcine"
+    },
+    {
+      "item": "project_industrial:molybdenum_calcine"
+    },
+    {
+      "item": "project_industrial:molybdenum_calcine"
+    }
+  ],
+  "result": {
+    "item": "project_industrial:molybdenum_reagent",
+    "count": 2
+  }
+}

@@ -4,13 +4,14 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.nejiwwkr.project_industrial.util.C;
 
 import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.*;
 import static net.nejiwwkr.project_industrial.fluid.ModFluids.BoronBucket;
 
 public class ItemGroups {
     public static final FabricItemGroupBuilder PROJECT_INDUSTRIAL_ITEM_GROUP_BASIC = FabricItemGroupBuilder
-            .create(new Identifier(MOD_ID,"item_tab_basic"))
+            .create(new Identifier(C.MOD_ID,"item_tab_basic"))
             .icon(() -> new ItemStack(COAL_NUGGET))
             .appendItems(stacks -> {
                 Item[] ITEMS =new Item[]{
@@ -47,7 +48,7 @@ public class ItemGroups {
             });
 
     public static final FabricItemGroupBuilder PROJECT_INDUSTRIAL_ITEM_GROUP_CONSTRUCTION = FabricItemGroupBuilder
-            .create(new Identifier(MOD_ID,"item_tab_construction"))
+            .create(new Identifier(C.MOD_ID,"item_tab_construction"))
             .icon(() -> new ItemStack(BORON_BRICK_ITEM))
             .appendItems(stacks -> {
                 Item[] ITEMS =new Item[]{
@@ -57,12 +58,13 @@ public class ItemGroups {
 
                         SALTPETERING_BRICKS_ITEM,
                         ALLOY_FURNACE_ITEM,
+                        LEAD_GLASS_ITEM
                 };
                 for (Item i : ITEMS) stacks.add(new ItemStack(i));
             });
 
     public static final FabricItemGroupBuilder PROJECT_INDUSTRIAL_ITEM_GROUP_COMPOUND = FabricItemGroupBuilder
-            .create(new Identifier(MOD_ID,"item_tab_compound"))
+            .create(new Identifier(C.MOD_ID,"item_tab_compound"))
             .icon(() -> new ItemStack(LEAD_OXIDE))
             .appendItems(stacks -> {
                 Item[] ITEMS =new Item[]{
@@ -71,7 +73,8 @@ public class ItemGroups {
                         POTASH,RAW_POTASSIUM_CARBONATE,
                         LEAD_GLASS_REAGENT,
                         BORAX,
-                        MOLYBDENUM_CALCINE
+                        MOLYBDENUM_CALCINE,
+                        MOLYBDENUM_REAGENT
                 };
                 for (Item i : ITEMS) stacks.add(new ItemStack(i));
             });

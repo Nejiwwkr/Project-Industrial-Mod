@@ -25,8 +25,8 @@ import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.*;
 
 public class OverworldMetalUtil {
     private static void RegistryOverworldOre (String metalName, ConfiguredFeature<?, ?> CF, PlacedFeature PF,ConfiguredFeature<?, ?> DeepslateCF, PlacedFeature DeepslatePF) {
-        Identifier oreId = new Identifier(MOD_ID,"overworld_"+metalName.toLowerCase()+"ore");
-        Identifier deepslateOreId = new Identifier(MOD_ID,"overworld_deepslate"+metalName.toLowerCase()+"ore");
+        Identifier oreId = new Identifier(C.MOD_ID,"overworld_"+metalName.toLowerCase()+"ore");
+        Identifier deepslateOreId = new Identifier(C.MOD_ID,"overworld_deepslate"+metalName.toLowerCase()+"ore");
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,oreId, CF);
         Registry.register(BuiltinRegistries.PLACED_FEATURE, oreId, PF);
@@ -100,10 +100,10 @@ public class OverworldMetalUtil {
      * @param maxYOffset 最大生成高度
      */
     public static void CreateOverworldOreAndRegistryFeatures(String metalName, Block ore, Block deepslateOre, OreRarity rarity, int maxYOffset) {
-        int size = rarity.size;
-        int deepslateSize = rarity.deepslateSize;
-        int count = rarity.count;
-        int deepslateCount = rarity.deepslateCount;
+        int size = rarity.getSize();
+        int deepslateSize = rarity.getDeepslateSize();
+        int count = rarity.getCount();
+        int deepslateCount = rarity.getDeepslateCount();
         ConfiguredFeature<?, ?> CF_ore = new ConfiguredFeature<>(
                 Feature.ORE, new OreFeatureConfig(
                 OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
@@ -164,22 +164,22 @@ public class OverworldMetalUtil {
             @Nullable Block metalBlock, @Nullable BlockItem metalBlockItem,
             @Nullable Block metalReagent, @Nullable BlockItem metalReagentItem
     ) {
-        if (rawMetal != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,"raw_"+metalName),rawMetal);
-        if (metalIngot != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,metalName+"_ingot"),metalIngot);
-        if (rawMetalWithCoal != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,"raw_"+metalName+"_with_coal"),rawMetalWithCoal);
-        if (metalNugget != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,metalName+"_nugget"),metalNugget);
+        if (rawMetal != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"raw_"+metalName),rawMetal);
+        if (metalIngot != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,metalName+"_ingot"),metalIngot);
+        if (rawMetalWithCoal != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"raw_"+metalName+"_with_coal"),rawMetalWithCoal);
+        if (metalNugget != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,metalName+"_nugget"),metalNugget);
 
-        if (metalOre != null)Registry.register(Registry.BLOCK,new Identifier(MOD_ID,metalName+"_ore"),metalOre);
-        if (deepslateMetalOre != null)Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"deepslate_"+metalName+"_ore"),deepslateMetalOre);
-        if (rawMetalBlock != null)Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"raw_"+metalName+"_block"),rawMetalBlock);
-        if (metalBlock != null)Registry.register(Registry.BLOCK,new Identifier(MOD_ID,metalName+"_block"),metalBlock);
-        if (metalOreItem != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,metalName+"_ore"),metalOreItem);
-        if (deepslateMetalOreItem != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,"deepslate_"+metalName+"_ore"),deepslateMetalOreItem);
-        if (rawMetalBlockItem != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,"raw_"+metalName+"_block"),rawMetalBlockItem);
-        if (metalBlockItem != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,metalName+"_block"),metalBlockItem);
+        if (metalOre != null)Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,metalName+"_ore"),metalOre);
+        if (deepslateMetalOre != null)Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"deepslate_"+metalName+"_ore"),deepslateMetalOre);
+        if (rawMetalBlock != null)Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"raw_"+metalName+"_block"),rawMetalBlock);
+        if (metalBlock != null)Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,metalName+"_block"),metalBlock);
+        if (metalOreItem != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,metalName+"_ore"),metalOreItem);
+        if (deepslateMetalOreItem != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"deepslate_"+metalName+"_ore"),deepslateMetalOreItem);
+        if (rawMetalBlockItem != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"raw_"+metalName+"_block"),rawMetalBlockItem);
+        if (metalBlockItem != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,metalName+"_block"),metalBlockItem);
 
-        if (metalReagent != null)Registry.register(Registry.BLOCK,new Identifier(MOD_ID,metalName+"_reagent"),metalReagent);
-        if (metalReagentItem != null)Registry.register(Registry.ITEM,new Identifier(MOD_ID,metalName+"_reagent"),metalReagentItem);
+        if (metalReagent != null)Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,metalName+"_reagent"),metalReagent);
+        if (metalReagentItem != null)Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,metalName+"_reagent"),metalReagentItem);
     }
 
     private static final MetalFactory LEAD_FACTORY =  new MetalFactory(MetalPos.OVERWORLD,"lead");

@@ -2,7 +2,7 @@
   "parent": "project_industrial:potassium",
   "display": {
     "icon": {
-      "item": "minecraft:glass"
+      "item": "project_industrial:lead_glass"
     },
     "title": {
       "translate": "advancements.project_industrial.glass.title"

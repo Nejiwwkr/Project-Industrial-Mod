@@ -15,10 +15,14 @@
   "item.project_industrial.lead_sword.tooltip": "请将我附魔",
   "item.project_industrial.lead_nugget": "铅粒",
   "item.project_industrial.manganese_ingot": "锰锭",
+  "item.project_industrial.manganese_nugget": "锰粒",
   "item.project_industrial.raw_manganese": "粗锰",
   "item.project_industrial.chrome_ingot": "铬锭",
+  "item.project_industrial.chrome_nugget": "铬粒",
   "item.project_industrial.nickel_ingot": "镍锭",
+  "item.project_industrial.nickel_nugget": "镍粒",
   "item.project_industrial.molybdenum_ingot": "钼锭",
+  "item.project_industrial.molybdenum_nugget": "钼粒",
   "item.project_industrial.raw_molybdenum": "粗辉钼矿",
   "item.project_industrial.lead_oxide": "氧化铅",
   "item.project_industrial.calcium_oxide": "氧化钙",
@@ -30,6 +34,9 @@
   "block.project_industrial.alloy_furnace": "合金炉",
   "item.project_industrial.nickel_crucible": "镍坩埚",
   "item.project_industrial.molybdenum_calcine":"钼焙砂",
+  "item.project_industrial.molybdenum_reagent":"钼反应物",
+  "block.project_industrial.lead_glass":"铅玻璃",
+  "block.project_industrial.lead_glass.tips":"质感厚重，更加透明的同时边框也更加醒目",
 
   "item.minecraft.potion.effect.apple_vinegar": "苹果醋",
   "item.minecraft.splash_potion.effect.apple_vinegar": "喷溅型苹果醋",
@@ -76,6 +83,8 @@
   "effect.project_industrial.lead_poison": "急性铅中毒",
 
   "enchantment.project_industrial.lead_poison_enchantment": "镀铅",
+  "enchantment.project_industrial.hand_in_enchantment": "缴械",
+  "enchantment.project_industrial.plasma_enchantment": "等离子体",
 
   "death.attack.chemical": "%1$s 死于化学性药剂",
 
@@ -96,6 +105,8 @@
   "advancements.project_industrial.firework_star.description": "利用焰色反应制造彩色烟火",
   "advancements.project_industrial.glass.title": "美学的享受",
   "advancements.project_industrial.glass.description": "将玻璃反应物烧制以得到玻璃",
+  "advancements.project_industrial.lead_glass.title": "背刺",
+  "advancements.project_industrial.lead_glass.description": "使用非精准采集工具破坏铅玻璃",
   "advancements.project_industrial.with_coal.title": "还原反应",
   "advancements.project_industrial.with_coal.description": "用碳还原粗矿",
   "advancements.project_industrial.reagent.title": "批量生产",
@@ -122,5 +133,11 @@
   "color.project_industrial.lead_light_blue.star": "铅-蓝灰色",
 
   "tip.has_nbt": "该物品有nbt：",
-  "tip.null_nbt": "该物品无nbt。"
+  "tip.null_nbt": "该物品无nbt。",
+  "project_industrial.tip.l": "按住",
+  "project_industrial.tip.r": "查看说明",
+  "project_industrial.sum.l": "按住",
+  "project_industrial.sum.r": "查看概要",
+  "project_industrial.info.l": "按住",
+  "project_industrial.info.r": "查看详细信息"
 }

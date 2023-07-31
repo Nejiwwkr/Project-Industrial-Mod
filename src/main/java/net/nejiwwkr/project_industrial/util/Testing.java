@@ -3,12 +3,13 @@ package net.nejiwwkr.project_industrial.util;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
+import net.nejiwwkr.project_industrial.util.interfaces.RuntimeTest;
 
-public class Testing {
-    public static void checkTickerIsWorking(World world) {
+public class Testing implements RuntimeTest {
+    public void checkTickerIsWorking(World world) {
         world.getPlayers().forEach(x -> x.sendMessage(new TranslatableText("ok"),false));
     }
-    public static void checkTickerIsWorking(World world,String text) {
+    public void checkTickerIsWorking(World world,String text) {
         world.getPlayers().forEach(x -> x.sendMessage(new LiteralText(text),false));
     }
 }

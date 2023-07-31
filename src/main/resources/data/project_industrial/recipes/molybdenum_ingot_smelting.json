@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "project_industrial:molybdenum_reagent"
+  },
+  "result": "project_industrial:molybdenum_ingot",
+  "experience": 0.3,
+  "cookingtime": 200
+}

@@ -8,11 +8,11 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.nejiwwkr.project_industrial.screen.handler.AlloyFurnaceBlockScreenHandler;
+import net.nejiwwkr.project_industrial.util.C;
 
-import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.MOD_ID;
 
 public class AlloyFurnaceBlockScreen extends HandledScreen<AlloyFurnaceBlockScreenHandler> {
-    public static final Identifier TEXTURE = new Identifier(MOD_ID,"textures/gui/alloy_furnace.png");
+    public static final Identifier TEXTURE = new Identifier(C.MOD_ID,"textures/gui/alloy_furnace.png");
 
     public AlloyFurnaceBlockScreen(AlloyFurnaceBlockScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

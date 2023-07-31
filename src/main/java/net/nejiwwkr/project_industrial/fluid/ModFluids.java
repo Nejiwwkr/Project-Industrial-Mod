@@ -11,8 +11,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.nejiwwkr.project_industrial.util.C;
 
-import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.MOD_ID;
 
 public class ModFluids {
     public static FlowableFluid StillBoronFluid;
@@ -21,9 +21,9 @@ public class ModFluids {
     public static Item BoronBucket;
 
     public static void init() {
-        StillBoronFluid = Registry.register(Registry.FLUID,new Identifier(MOD_ID,"boron_fluid"),new BoronFluid.Still());
-        FlowingBoronFluid = Registry.register(Registry.FLUID,new Identifier(MOD_ID,"flowing_boron_fluid"),new BoronFluid.Flowing());
-        BoronFluidBlock = Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"boron_fluid_block"),new FluidBlock(StillBoronFluid, FabricBlockSettings.copyOf(Blocks.WATER)));
-        BoronBucket = Registry.register(Registry.ITEM,new Identifier(MOD_ID,"boron_bucket"),new BucketItem(StillBoronFluid,new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        StillBoronFluid = Registry.register(Registry.FLUID,new Identifier(C.MOD_ID,"boron_fluid"),new BoronFluid.Still());
+        FlowingBoronFluid = Registry.register(Registry.FLUID,new Identifier(C.MOD_ID,"flowing_boron_fluid"),new BoronFluid.Flowing());
+        BoronFluidBlock = Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"boron_fluid_block"),new FluidBlock(StillBoronFluid, FabricBlockSettings.copyOf(Blocks.WATER)));
+        BoronBucket = Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"boron_bucket"),new BucketItem(StillBoronFluid,new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
     }
 }

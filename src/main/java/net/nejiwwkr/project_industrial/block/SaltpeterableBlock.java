@@ -26,10 +26,9 @@ public class SaltpeterableBlock extends Block{
 
         if (currentTick < (TICK_TIME + 20)) {
             currentTick++;
-        }else {
-            return;
-        }
-        Testing.checkTickerIsWorking(world);
+        }else return;
+
+        new Testing().checkTickerIsWorking(world);
 
         if (currentTick == TICK_TIME) {
             world.setBlockState(pos,goalBlock.getDefaultState());
