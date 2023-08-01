@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.nejiwwkr.project_industrial.util.Testing;
+import net.nejiwwkr.project_industrial.util.runtime.Testing;
 
 import java.util.Random;
 

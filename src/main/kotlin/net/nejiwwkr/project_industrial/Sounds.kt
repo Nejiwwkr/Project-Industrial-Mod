@@ -30,6 +30,7 @@ object Sounds {
         Registry.register(Registry.SOUND_EVENT, Identifier(C.MOD_ID, "ceramic_place"), CERAMIC_SOUND_PLACE)
         Registry.register(Registry.SOUND_EVENT, Identifier(C.MOD_ID, "ceramic_break"), CERAMIC_SOUND_BREAK)
         Registry.register(Registry.SOUND_EVENT, Identifier(C.MOD_ID, "metal_block"), METAL_BLOCK)
+
         Registry.register(Registry.ITEM, Identifier(C.MOD_ID, "theme_disc"), ProjectIndustrialMod.THEME_DISC)
     }
 }

@@ -43,9 +43,11 @@ import net.nejiwwkr.project_industrial.item.instances.Tools;
 import net.nejiwwkr.project_industrial.screen.handler.AlloyFurnaceBlockScreenHandler;
 import net.nejiwwkr.project_industrial.util.C;
 import net.nejiwwkr.project_industrial.util.OverworldMetalUtil;
+import net.nejiwwkr.project_industrial.util.annotation.Nickname;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.util.List;
 
 import static net.nejiwwkr.project_industrial.Sounds.*;
@@ -81,6 +83,8 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Item NICKEL_NUGGET = new NuggetItem(MetalType.NICKEL);
 	public static final Item NICKEL_INGOT = new IngotItem(MetalType.NICKEL);
 
+	public static final Item MAGIC_STICK = new MagicStickItem(new FabricItemSettings().maxCount(1));
+
 	public static final ChemicalItemWithColor LEAD_OXIDE = new ChemicalItemWithColor(C.color.Pb,"lead_light_blue");
 	public static final ChemicalItemWithColor CALCIUM_OXIDE = new ChemicalItemWithColor(C.color.Ca,"calcium_orange");
 	public static final Item POTASH = new Item(COMPOUND_SETTINGS);
@@ -90,6 +94,7 @@ public class ProjectIndustrialMod implements ModInitializer {
 
 
 	//BORON
+	@Nickname(nickname = "ulexite")
 	public static final Block BORON_STONE = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(0.1F,0.5F).sounds(ULEXITE_BSG));
 	public static final BlockItem BORON_STONE_ITEM = new BlockItem(BORON_STONE,new FabricItemSettings());
 	public static final Block CRYSTALLIZED_BORON_STONE = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(0.5F,1.0F).sounds(ULEXITE_BSG));
@@ -225,6 +230,8 @@ public class ProjectIndustrialMod implements ModInitializer {
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"lead_glass_reagent"),LEAD_GLASS_REAGENT);
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"borax"),BORAX);
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_calcine"),MOLYBDENUM_CALCINE);
+
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"magic_stick"),MAGIC_STICK);
 
 		//BORON
 		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"boron_stone"),BORON_STONE);

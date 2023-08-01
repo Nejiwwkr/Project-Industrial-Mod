@@ -1,4 +1,4 @@
-package net.nejiwwkr.project_industrial.util;
+package net.nejiwwkr.project_industrial.util.runtime;
 
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;

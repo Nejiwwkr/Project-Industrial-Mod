@@ -1,4 +1,4 @@
-package net.nejiwwkr.project_industrial.util;
+package net.nejiwwkr.project_industrial.util.runtime;
 
 import net.minecraft.util.Pair;
 import net.nejiwwkr.project_industrial.util.annotation.Dangerous;
