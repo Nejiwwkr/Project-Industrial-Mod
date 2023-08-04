@@ -8,8 +8,6 @@ Inspired by the famous mod IC2
 This might be a great high-version technology mod  
 This mod is aimed at restoring industrial in the real world especially about chemistry,physics and biology  
 
-
-
 ## Work In Progress
 
 A lot of ideas still under development 
@@ -52,29 +50,27 @@ Also,some special recipes like stainless steel will be added in.
 
   Example in the mod
 
-  >```java
-  >public static final ProjectIndustrialInstructedBlockItem LEAD_GLASS_ITEM = new  ProjectIndustrialInstructedBlockItem(LEAD_GLASS,new FabricItemSettings()){
-  >   @Override
-  >   public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-  >      this.setTips(new TranslatableText("block.project_industrial.lead_glass.tips").formatted(Formatting.GRAY));
-  >	     //set tips first
-  >       
-  >      appendToolInstruct(stack,world,tooltip,context, InstructType.Shift);
-  >      //never forget to call the essential methods 
-  >   }
-  >};
-  >```
+  ```java
+  public static final ProjectIndustrialInstructedBlockItem LEAD_GLASS_ITEM = new  ProjectIndustrialInstructedBlockItem(LEAD_GLASS,new FabricItemSettings()){
+     @Override
+     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        this.setTips(new TranslatableText("block.project_industrial.lead_glass.tips").formatted(Formatting.GRAY));
+           //set tips first
+       
+        appendToolInstruct(stack,world,tooltip,context, InstructType.Shift);
+        //never forget to call the essential methods 
+     }
+  };
+  ```
 
 - new annotation in the mod
 
-  >```java
-  >package net.nejiwwkr.project_industrial.util;
-  >
-  >@Essential
-  >public void init();
-  >```
+  ```java
+  @Essential
+  public void init();
+  ```
 
-​		The method annotated with @Essential must be called by every instances of the class
+  The method annotated with @Essential must be called by every instance of the class
 
 
 
