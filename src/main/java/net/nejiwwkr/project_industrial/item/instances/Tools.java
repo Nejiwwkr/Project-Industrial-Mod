@@ -8,8 +8,9 @@ import net.minecraft.util.registry.Registry;
 import net.nejiwwkr.project_industrial.item.LeadSword;
 import net.nejiwwkr.project_industrial.material.MolybdenumMaterial;
 import net.nejiwwkr.project_industrial.util.C;
+import net.nejiwwkr.project_industrial.util.annotation.Essential;
 
-
+@Essential
 public class Tools {
     public static final ToolItem LEAD_SWORD = new LeadSword();
 
@@ -26,7 +27,6 @@ public class Tools {
                 Item[] ITEMS =new Item[]{
                         LEAD_SWORD,
                         MOLYBDENUM_SWORD,MOLYBDENUM_PICKAXE,MOLYBDENUM_AXE,MOLYBDENUM_SHOVEL,MOLYBDENUM_HOE,
-
                 };
                 for (Item i : ITEMS) stacks.add(new ItemStack(i));
             });

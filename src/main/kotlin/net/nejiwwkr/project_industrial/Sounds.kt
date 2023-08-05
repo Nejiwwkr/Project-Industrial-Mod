@@ -6,7 +6,9 @@ import net.minecraft.sound.SoundEvents
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import net.nejiwwkr.project_industrial.util.C
+import net.nejiwwkr.project_industrial.util.annotation.Essential
 
+@Essential
 object Sounds {
     @JvmField
     val THEME_MUSIC = SoundEvent(Identifier(C.MOD_ID, "theme_song"))

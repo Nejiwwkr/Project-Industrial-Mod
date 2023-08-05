@@ -17,12 +17,14 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.nejiwwkr.project_industrial.util.annotation.Essential;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
 
 import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.*;
 
+@Essential
 public class OverworldMetalUtil {
     private static void RegistryOverworldOre (String metalName, ConfiguredFeature<?, ?> CF, PlacedFeature PF,ConfiguredFeature<?, ?> DeepslateCF, PlacedFeature DeepslatePF) {
         Identifier oreId = new Identifier(C.MOD_ID,"overworld_"+metalName.toLowerCase()+"ore");

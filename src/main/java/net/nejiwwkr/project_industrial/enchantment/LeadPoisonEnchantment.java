@@ -20,6 +20,11 @@ public class LeadPoisonEnchantment extends Enchantment {
     }
 
     @Override
+    public int getMaxPower(int level) {
+        return 0;
+    }
+
+    @Override
     public int getMaxLevel() {
         return 1;
     }

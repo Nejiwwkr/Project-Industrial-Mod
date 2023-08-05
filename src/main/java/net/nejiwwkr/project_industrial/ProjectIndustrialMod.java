@@ -34,6 +34,7 @@ import net.nejiwwkr.project_industrial.effect.AntidoteStatusEffect;
 import net.nejiwwkr.project_industrial.effect.LeadStatusEffect;
 import net.nejiwwkr.project_industrial.enchantment.HandInEnchantment;
 import net.nejiwwkr.project_industrial.enchantment.LeadPoisonEnchantment;
+import net.nejiwwkr.project_industrial.enchantment.MercifulEnchantment;
 import net.nejiwwkr.project_industrial.enchantment.PlasmaEnchantment;
 import net.nejiwwkr.project_industrial.fluid.ModFluids;
 import net.nejiwwkr.project_industrial.item.*;
@@ -191,6 +192,7 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Enchantment LEAD_POISON_ENCHANTMENT = new LeadPoisonEnchantment();
 	public static final Enchantment HAND_IN_ENCHANTMENT = new HandInEnchantment();
 	public static final Enchantment PLASMA_ENCHANTMENT = new PlasmaEnchantment();
+	public static final Enchantment MERCIFUL_ENCHANTMENT = new MercifulEnchantment();
 
 	static {
 		//noinspection deprecation
@@ -270,6 +272,7 @@ public class ProjectIndustrialMod implements ModInitializer {
 		Registry.register(Registry.ENCHANTMENT,new Identifier(C.MOD_ID,"lead_poison_enchantment"),LEAD_POISON_ENCHANTMENT);
 		Registry.register(Registry.ENCHANTMENT,new Identifier(C.MOD_ID,"hand_in_enchantment"),HAND_IN_ENCHANTMENT);
 		Registry.register(Registry.ENCHANTMENT,new Identifier(C.MOD_ID,"plasma_enchantment"),PLASMA_ENCHANTMENT);
+		Registry.register(Registry.ENCHANTMENT,new Identifier(C.MOD_ID,"merciful_enchantment"),MERCIFUL_ENCHANTMENT);
 
 		//special
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_reagent"),MOLYBDENUM_REAGENT);

@@ -70,6 +70,10 @@ public class MetalFactory {
         return this;
     }
 
+    /**
+     * 这个方法看起来人畜无害，但使用不当会相当危险<br>
+     * <strong>该方法需要该类的每一个实例在最后调用一次</strong>
+     */
     @Essential
     public void init() {
         OverworldMetalUtil.RegistryOverworldMetalRelatives(metalName,rawMetal, rawMetalWithCoal, metalIngot, metalNugget, metalOre, metalOreItem, deepslateMetalOre, deepslateMetalOreItem, rawMetalBlock, rawMetalBlockItem, metalBlock, metalBlockItem, metalReagent, metalReagentItem);

@@ -12,8 +12,9 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.nejiwwkr.project_industrial.util.C;
+import net.nejiwwkr.project_industrial.util.annotation.Essential;
 
-
+@Essential
 public class ModFluids {
     public static FlowableFluid StillBoronFluid;
     public static FlowableFluid FlowingBoronFluid;

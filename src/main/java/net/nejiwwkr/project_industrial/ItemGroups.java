@@ -5,10 +5,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.nejiwwkr.project_industrial.util.C;
+import net.nejiwwkr.project_industrial.util.annotation.Essential;
 
 import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.*;
 import static net.nejiwwkr.project_industrial.fluid.ModFluids.BoronBucket;
 
+@Essential
 public class ItemGroups {
     public static final FabricItemGroupBuilder PROJECT_INDUSTRIAL_ITEM_GROUP_BASIC = FabricItemGroupBuilder
             .create(new Identifier(C.MOD_ID,"item_tab_basic"))
