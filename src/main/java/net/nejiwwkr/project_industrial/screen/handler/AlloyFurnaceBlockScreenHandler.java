@@ -12,7 +12,7 @@ import net.minecraft.screen.slot.Slot;
 import net.nejiwwkr.project_industrial.ProjectIndustrialMod;
 
 import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.BORAX;
-import static net.nejiwwkr.project_industrial.util.NBT_TAG_Util.isFuel;
+import static net.nejiwwkr.project_industrial.util.NbtTagUtil.isFuel;
 
 public class AlloyFurnaceBlockScreenHandler extends ScreenHandler {
     public Inventory inv;

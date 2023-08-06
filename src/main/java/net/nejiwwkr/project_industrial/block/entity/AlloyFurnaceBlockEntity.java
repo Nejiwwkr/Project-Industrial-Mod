@@ -16,12 +16,13 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.nejiwwkr.project_industrial.crafting.AlloyRecipe;
 import net.nejiwwkr.project_industrial.screen.handler.AlloyFurnaceBlockScreenHandler;
+import org.jetbrains.annotations.NotNull;
 
 import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.ALLOY_FURNACE_ENTITY;
-import static net.nejiwwkr.project_industrial.crafting.AlloyRecipe.matches;
 import static net.nejiwwkr.project_industrial.crafting.AlloyRecipe.matchesWhich;
-import static net.nejiwwkr.project_industrial.util.NBT_TAG_Util.getFuelTime;
+import static net.nejiwwkr.project_industrial.util.NbtTagUtil.getFuelTime;
 
 public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
     private DefaultedList<ItemStack> inv = DefaultedList.ofSize(8,ItemStack.EMPTY);
@@ -107,7 +108,7 @@ public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
                 };
 
                 //如果物品配方匹配
-                if (matches(mainIngredient, sideIngredients)) {
+                if (AlloyRecipe.matches(mainIngredient, sideIngredients)) {
                     var key = matchesWhich(mainIngredient, sideIngredients);
                     var resItem = entity.inv.get(5);
 
@@ -117,7 +118,7 @@ public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
                         entity.cookTime = key.getRight();
 
                         //时间到了就设置物品，删除物品
-                        if (entity.tick >= key.getRight()) {
+                        if (entity.tick >= entity.cookTime) {
                             if (resItem.isEmpty()) entity.inv.set(5, new ItemStack(key.getLeft()));
                             else resItem.increment(1);
 
@@ -183,7 +184,8 @@ public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
         return ALLOY_FURNACE_ENTITY;
     }
 
-    private static void refresh(AlloyFurnaceBlockEntity e) {
+    @Deprecated
+    private static void refresh(@NotNull AlloyFurnaceBlockEntity e) {
         e.propertyDelegate.set(0,e.tick);
         e.propertyDelegate.set(1,e.fuelLeft);
         e.propertyDelegate.set(2,e.fuelTotal);

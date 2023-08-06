@@ -2,19 +2,17 @@ package net.nejiwwkr.project_industrial.crafting;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.Pair;
-import net.nejiwwkr.project_industrial.util.NBT_TAG_Util;
+import net.nejiwwkr.project_industrial.util.NbtTagUtil;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 import static net.minecraft.item.Items.AIR;
 import static net.minecraft.item.Items.IRON_INGOT;
-import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.LEAD_INGOT;
-import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.LEAD_NUGGET;
+import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.*;
 
 public class AlloyRecipe {
-    public static final AlloyRecipe SustainableSteel = new AlloyRecipe(IRON_INGOT, LEAD_INGOT, 400, LEAD_NUGGET, AIR, AIR, AIR);
+    public static final AlloyRecipe SustainableSteel = new AlloyRecipe(IRON_INGOT, STAINLESS_STEEL_INGOT, 200, MOLYBDENUM_NUGGET, NICKEL_NUGGET, CHROME_NUGGET, MANGANESE_NUGGET);
 
 
     private final Item mainIngredient;
@@ -28,6 +26,7 @@ public class AlloyRecipe {
         this.smeltingTime = smeltingTime;
     }
 
+    @SuppressWarnings("FieldMayBeFinal")
     private static ArrayList<AlloyRecipe> recipes = new ArrayList<>();
     static {
         recipes.add(SustainableSteel);
@@ -36,7 +35,7 @@ public class AlloyRecipe {
     public static boolean matches(Item mainIngredient, Item... sideIngredients) {
         boolean res = false;
         for (AlloyRecipe a : recipes) {
-            if (Objects.equals(a.mainIngredient, mainIngredient) && NBT_TAG_Util.compareArrays(a.sideIngredients, sideIngredients)) {
+            if (Objects.equals(a.mainIngredient, mainIngredient) && NbtTagUtil.compareArrays(a.sideIngredients, sideIngredients)) {
                 res = true;
                 break;
             }
@@ -47,7 +46,7 @@ public class AlloyRecipe {
     public static Pair<Item,Integer> matchesWhich(Item mainIngredient, Item... sideIngredients) {
         var res = new Pair<>(AIR,(int) Short.MAX_VALUE);
         for (AlloyRecipe a : recipes) {
-            if (Objects.equals(a.mainIngredient, mainIngredient) && Arrays.equals(a.sideIngredients, sideIngredients)) {
+            if (Objects.equals(a.mainIngredient, mainIngredient) && NbtTagUtil.compareArrays(a.sideIngredients, sideIngredients)) {
                 res.setLeft(a.resultItem);
                 res.setRight(a.smeltingTime);
             }
@@ -55,7 +54,7 @@ public class AlloyRecipe {
         return res;
     }
 
-    @Deprecated
+    @SuppressWarnings("unused")
     public static void addRecipe (AlloyRecipe a) {
         recipes.add(a);
     }
