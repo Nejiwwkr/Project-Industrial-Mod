@@ -9,7 +9,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import net.nejiwwkr.project_industrial.material.LeadPlatedMaterial;
-import net.nejiwwkr.project_industrial.util.NBT_TAG_Util;
+import net.nejiwwkr.project_industrial.util.NbtTagUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -28,11 +28,11 @@ public class LeadSword extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (stack.hasEnchantments() && !NBT_TAG_Util.containsEnchantment(stack,"lead_poison")) stack.addEnchantment(LEAD_POISON_ENCHANTMENT, 1);
+        if (stack.hasEnchantments() && !NbtTagUtil.containsEnchantment(stack,"lead_poison")) stack.addEnchantment(LEAD_POISON_ENCHANTMENT, 1);
 
         var text = new TranslatableText("item.project_industrial.lead_sword.tooltip").formatted(Formatting.GRAY);
 
         tooltip.add(text);
-        if (NBT_TAG_Util.containsEnchantment(stack,"lead_poison")) tooltip.remove(text);
+        if (NbtTagUtil.containsEnchantment(stack,"lead_poison")) tooltip.remove(text);
     }
 }

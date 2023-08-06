@@ -9,7 +9,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 
 import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.LEAD_POISON;
 
-public class LeadPoisonEnchantment extends Enchantment {
+public final class LeadPoisonEnchantment extends Enchantment {
     public LeadPoisonEnchantment() {
         super(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
@@ -34,5 +34,10 @@ public class LeadPoisonEnchantment extends Enchantment {
         if (target instanceof LivingEntity) {
             ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(LEAD_POISON,200,0));
         }
+    }
+
+    @Override
+    public boolean isTreasure() {
+        return true;
     }
 }

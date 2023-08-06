@@ -6,28 +6,18 @@ import net.minecraft.entity.Entity
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.LivingEntity
 import net.minecraft.item.SwordItem
-import net.minecraft.item.ToolItem
 
-class MercifulEnchantment : Enchantment(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, Array(1){EquipmentSlot.MAINHAND}) {
-    override fun getMinPower(level : Int) : Int {
-        return 0
-    }
+class MercifulEnchantment: Enchantment(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, Array(1){EquipmentSlot.MAINHAND}) {
+    override fun getMinPower(level: Int): Int = 0
 
-    override fun getMaxPower(level : Int) : Int {
-        return 0
-    }
+    override fun getMaxPower(level: Int): Int = 0
 
-    override fun getMaxLevel() : Int {
-        return 1
-    }
+    override fun getMaxLevel(): Int = 1
 
-    override fun onTargetDamaged(user : LivingEntity, target : Entity,level : Int) {
+    override fun onTargetDamaged(user: LivingEntity, target: Entity, level: Int) {
         val item = user.mainHandStack.item
-        if (item is ToolItem && target is LivingEntity) {
-            val attackDamage = (item as SwordItem).attackDamage
-            target.heal(attackDamage)
-        }
+        if (item is SwordItem && target is LivingEntity) target.heal(item.attackDamage)
     }
+
+    override fun isTreasure(): Boolean = true
 }
-
-

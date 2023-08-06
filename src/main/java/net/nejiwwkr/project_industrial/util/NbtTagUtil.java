@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiPredicate;
 
-public class NBT_TAG_Util {
+public class NbtTagUtil {
     public static boolean containsEnchantment (ItemStack stack, String enchantmentName) {
         if (stack.hasEnchantments()) {
             boolean a = true;
@@ -48,6 +48,10 @@ public class NBT_TAG_Util {
         return burnTime;
     }
 
+    /**
+     * <i>忽略顺序地</i> 比较两个数组
+     * @return 两个数组元素在种类，数量上是否完全一致
+     */
     public static boolean compareArrays(Object[] arr1, Object[] arr2) {
         if (arr1.length != arr2.length) {
             return false;

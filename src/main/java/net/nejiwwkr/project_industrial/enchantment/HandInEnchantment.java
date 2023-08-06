@@ -9,9 +9,24 @@ import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 
-public class HandInEnchantment extends Enchantment {
+public final class HandInEnchantment extends Enchantment {
     public HandInEnchantment() {
         super(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+    }
+
+    @Override
+    public int getMinPower(int level) {
+        return 0;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return 0;
+    }
+
+    @Override
+    public int getMaxLevel() {
+        return 1;
     }
 
     @Override
@@ -29,5 +44,10 @@ public class HandInEnchantment extends Enchantment {
                 livingEntity.setStackInHand(Hand.MAIN_HAND,ItemStack.EMPTY);
             }
         }
+    }
+
+    @Override
+    public boolean isTreasure() {
+        return true;
     }
 }

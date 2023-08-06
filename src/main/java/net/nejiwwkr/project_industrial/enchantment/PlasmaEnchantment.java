@@ -10,9 +10,24 @@ import net.minecraft.entity.mob.WitchEntity;
 import net.minecraft.util.math.Vec3d;
 import net.nejiwwkr.project_industrial.entity.damage.ChemicalDamage;
 
-public class PlasmaEnchantment extends Enchantment {
+public final class PlasmaEnchantment extends Enchantment {
     public PlasmaEnchantment() {
         super(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+    }
+
+    @Override
+    public int getMinPower(int level) {
+        return 0;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return 0;
+    }
+
+    @Override
+    public int getMaxLevel() {
+        return 1;
     }
 
     @Override
@@ -37,5 +52,10 @@ public class PlasmaEnchantment extends Enchantment {
     @Override
     public void onUserDamaged(LivingEntity user, Entity attacker, int level) {
         super.onUserDamaged(user, attacker, level);
+    }
+
+    @Override
+    public boolean isTreasure() {
+        return true;
     }
 }

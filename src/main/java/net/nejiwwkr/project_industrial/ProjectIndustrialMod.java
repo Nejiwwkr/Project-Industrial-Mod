@@ -75,6 +75,7 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Item MANGANESE_INGOT = new IngotItem(MetalType.MANGANESE);
 	//CHROME
 	public static final Item CHROME_INGOT = new IngotItem(MetalType.CHROME);
+	public static final Item CHROME_NUGGET = new NuggetItem(MetalType.CHROME);
 	//MOLYBDENUM
 	public static final Item RAW_MOLYBDENUM = new Item(new FabricItemSettings());
 	public static final Item MOLYBDENUM_NUGGET = new NuggetItem(MetalType.MOLYBDENUM);
@@ -83,6 +84,9 @@ public class ProjectIndustrialMod implements ModInitializer {
 	//NICKEL
 	public static final Item NICKEL_NUGGET = new NuggetItem(MetalType.NICKEL);
 	public static final Item NICKEL_INGOT = new IngotItem(MetalType.NICKEL);
+
+	//Stainless Steel
+	public static final Item STAINLESS_STEEL_INGOT = new Item(new FabricItemSettings());
 
 	public static final Item MAGIC_STICK = new MagicStickItem(new FabricItemSettings().maxCount(1));
 
@@ -235,6 +239,8 @@ public class ProjectIndustrialMod implements ModInitializer {
 
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"magic_stick"),MAGIC_STICK);
 
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"stainless_steel"), STAINLESS_STEEL_INGOT);
+
 		//BORON
 		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"boron_stone"),BORON_STONE);
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"boron_stone"),BORON_STONE_ITEM);
@@ -275,6 +281,9 @@ public class ProjectIndustrialMod implements ModInitializer {
 		Registry.register(Registry.ENCHANTMENT,new Identifier(C.MOD_ID,"merciful_enchantment"),MERCIFUL_ENCHANTMENT);
 
 		//special
+		//the parameter of the method net.nejiwwkr.project_industrial.util.OverworldMetalUtil#init()
+		//to initialize the metal reagent is Block,not Item
+		//here requires to initialize it as Item
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"molybdenum_reagent"),MOLYBDENUM_REAGENT);
 
 		OverworldMetalUtil.init();

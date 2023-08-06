@@ -225,13 +225,11 @@ public class OverworldMetalUtil {
                 .worldGen(OreRarity.LEGENDARY,16)
                 .init();
 
-        CHROME_FACTORY.appendIngot(CHROME_INGOT,null)
+        CHROME_FACTORY.appendIngot(CHROME_INGOT,CHROME_NUGGET)
                 .appendBlock(CHROME_BLOCK,CHROME_BLOCK_ITEM)
                 .appendOre(CHROME_ORE,CHROME_ORE_ITEM,DEEPSLATE_CHROME_ORE,DEEPSLATE_CHROME_ORE_ITEM)
                 .worldGen(OreRarity.UNCOMMON,32)
                 .init();
     }
-
-
 }
 

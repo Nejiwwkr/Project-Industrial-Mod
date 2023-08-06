@@ -15,7 +15,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.nejiwwkr.project_industrial.util.C;
-import net.nejiwwkr.project_industrial.util.NBT_TAG_Util;
+import net.nejiwwkr.project_industrial.util.NbtTagUtil;
 
 import java.util.Objects;
 
@@ -53,7 +53,7 @@ public class LeadGlass extends Block {
             case HARD -> 0.3;
         };
 
-        if (!NBT_TAG_Util.containsEnchantment(player.getMainHandStack(),"silk") && Math.random() <= χ) {
+        if (!NbtTagUtil.containsEnchantment(player.getMainHandStack(),"silk") && Math.random() <= χ) {
             player.addStatusEffect(new StatusEffectInstance(LEAD_POISON, (int) (200 * Math.random() + 1),0));
             conditionIsMet(player);
         }
