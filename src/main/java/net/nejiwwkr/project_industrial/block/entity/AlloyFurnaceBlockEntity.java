@@ -17,14 +17,21 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.nejiwwkr.project_industrial.crafting.AlloyRecipe;
+import net.nejiwwkr.project_industrial.crafting.AlloyUtil;
+import net.nejiwwkr.project_industrial.crafting.alloy.MetalType;
 import net.nejiwwkr.project_industrial.screen.handler.AlloyFurnaceBlockScreenHandler;
-import org.jetbrains.annotations.NotNull;
+import net.nejiwwkr.project_industrial.util.interfaces.NonAutoNbt;
 
+import java.util.Arrays;
+import java.util.Objects;
+
+import static java.util.Objects.requireNonNull;
 import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.ALLOY_FURNACE_ENTITY;
+import static net.nejiwwkr.project_industrial.ProjectIndustrialMod.ALLOY_INGOT;
 import static net.nejiwwkr.project_industrial.crafting.AlloyRecipe.matchesWhich;
 import static net.nejiwwkr.project_industrial.util.NbtTagUtil.getFuelTime;
 
-public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
+public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity implements NonAutoNbt {
     private DefaultedList<ItemStack> inv = DefaultedList.ofSize(8,ItemStack.EMPTY);
 
 
@@ -91,8 +98,6 @@ public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
     };
 
     public static void tick(World world, BlockPos pos, BlockState state, AlloyFurnaceBlockEntity entity) {
-        //refresh(entity);
-
         //如果燃料还有
         if (entity.fuelLeft > 0){
             entity.fuelLeft--;
@@ -113,13 +118,13 @@ public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
                     var resItem = entity.inv.get(5);
 
                     //如果结果栏有位置，硼砂还有，开始计时
-                    if (key.getLeft().equals(resItem.getItem()) || resItem.isEmpty() && !entity.inv.get(6).isEmpty()) {
+                    if (key.getLeft().equals(resItem) || resItem.isEmpty() && !entity.inv.get(6).isEmpty()) {
                         entity.tick++;
                         entity.cookTime = key.getRight();
 
                         //时间到了就设置物品，删除物品
                         if (entity.tick >= entity.cookTime) {
-                            if (resItem.isEmpty()) entity.inv.set(5, new ItemStack(key.getLeft()));
+                            if (resItem.isEmpty()) entity.inv.set(5, key.getLeft());
                             else resItem.increment(1);
 
                             entity.inv.get(0).decrement(1);
@@ -131,10 +136,48 @@ public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
                             entity.cookTime = 0;
                         }
                     }
-                    //TODO 燃料相關動畫
+                    //判断物品是否有意义
+                }else if (
+                        (MetalType.getTypeByItem(mainIngredient) != null) &&
+                        (entity.inv.get(1).isEmpty() || sideIngredients[0] == null || MetalType.getTypeByItem(sideIngredients[0]) != null) &&
+                        (entity.inv.get(2).isEmpty() || sideIngredients[1] == null || MetalType.getTypeByItem(sideIngredients[1]) != null) &&
+                        (entity.inv.get(3).isEmpty() || sideIngredients[2] == null || MetalType.getTypeByItem(sideIngredients[2]) != null) &&
+                        (entity.inv.get(4).isEmpty() || sideIngredients[3] == null || MetalType.getTypeByItem(sideIngredients[3]) != null) &&
+                        Arrays.stream(requireNonNull(MetalType.getTypeByItem(sideIngredients))).noneMatch(x -> x == MetalType.getTypeByItem(mainIngredient))
+                    ){//TODO 判断物品是不是粒
+                    //通用特殊配方
+                    var resItem = entity.inv.get(5);
+                    ItemStack stack= new ItemStack(ALLOY_INGOT);
 
-                    //Testing.checkTickerIsWorking(world, String.valueOf(entity.tick));
-                    //Testing.checkTickerIsWorking(world, String.valueOf(key.getRight()));
+                    AlloyUtil.writeNbt(
+                            stack.getOrCreateNbt(),
+                            requireNonNull(MetalType.getTypeByItem(mainIngredient)),
+                            Arrays.stream(MetalType.getTypeByItem(sideIngredients)).filter(Objects::nonNull).sorted((x, y) -> y.getMeltingPoint() - x.getMeltingPoint()).toArray(MetalType[]::new)
+                    );
+
+                    //如果结果栏有位置，硼砂还有，开始计时
+                    if (stack.equals(resItem) || resItem.isEmpty() && !entity.inv.get(6).isEmpty()) {
+                        entity.tick++;
+                        var sideIngredientArray = requireNonNull(MetalType.getTypeByItem(sideIngredients));
+                        int averageMeltingPoint = 300;
+                        if (Arrays.stream(MetalType.getTypeByItem(sideIngredients)).anyMatch(Objects::nonNull))
+                            averageMeltingPoint = Arrays.stream(sideIngredientArray).filter(Objects::nonNull).mapToInt(MetalType::getMeltingPoint).sum() / Arrays.stream(sideIngredientArray).filter(Objects::nonNull).toArray().length - 1000 + requireNonNull(MetalType.getTypeByItem(mainIngredient)).getMeltingPoint() / 3;
+                        entity.cookTime = Math.max(averageMeltingPoint, 200);
+
+                        //时间到了就设置物品，删除物品
+                        if (entity.tick >= entity.cookTime) {
+                            if (resItem.isEmpty()) entity.inv.set(5, stack);
+                            else resItem.increment(1);
+
+                            entity.inv.get(0).decrement(1);
+                            entity.inv.get(6).decrement(1);
+                            for (int i = 1; i <= 4; i++)
+                                if (!entity.inv.get(i).isEmpty()) entity.inv.get(i).decrement(1);
+
+                            entity.tick = 0;
+                            entity.cookTime = 0;
+                        }
+                    }
                 }
             }
         }
@@ -182,13 +225,5 @@ public class AlloyFurnaceBlockEntity extends LootableContainerBlockEntity {
     @Override
     public BlockEntityType<?> getType() {
         return ALLOY_FURNACE_ENTITY;
-    }
-
-    @Deprecated
-    private static void refresh(@NotNull AlloyFurnaceBlockEntity e) {
-        e.propertyDelegate.set(0,e.tick);
-        e.propertyDelegate.set(1,e.fuelLeft);
-        e.propertyDelegate.set(2,e.fuelTotal);
-        e.propertyDelegate.set(3,e.cookTime);
     }
 }

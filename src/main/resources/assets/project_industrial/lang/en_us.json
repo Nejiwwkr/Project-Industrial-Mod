@@ -34,6 +34,7 @@
   "item.project_industrial.boron_bucket":"Boron-rich Water Bucket",
   "item.project_industrial.molybdenum_calcine":"Molybdenum Calcine",
   "item.project_industrial.molybdenum_reagent":"Molybdenum Reagent",
+  "item.project_industrial.alloy_ingot":"Alloy Ingot",
   "block.project_industrial.lead_glass":"Lead Glass",
   "block.project_industrial.lead_glass.tips":"Thicker texture, more transparent but the border is also more eye-catching",
 
@@ -139,5 +140,14 @@
   "project_industrial.sum.l": "Hold ",
   "project_industrial.sum.r": " for summary",
   "project_industrial.info.l": "Hold ",
-  "project_industrial.info.r": " for detailed information"
+  "project_industrial.info.r": " for detailed information",
+
+  "project_industrial.has_side_ingredient": "Side Ingredient: ",
+  "project_industrial.alloy_usage": "Usage: ",
+  "project_industrial.alloy.main_ingredient.iron": "Iron Based",
+  "project_industrial.alloy.main_ingredient.manganese": "Manganese Based",
+  "project_industrial.alloy.side_ingredient.coal": "Carbon",
+  "project_industrial.alloy.side_ingredient.molybdenum": "Molybdenum",
+  "project_industrial.alloy.side_ingredient.manganese": "Manganese",
+  "project_industrial.alloy.side_ingredient.nickel": "Nickel"
 }

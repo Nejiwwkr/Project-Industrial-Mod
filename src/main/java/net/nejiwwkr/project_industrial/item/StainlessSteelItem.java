@@ -1,14 +1,8 @@
 package net.nejiwwkr.project_industrial.item;
 
-import net.nejiwwkr.project_industrial.crafting.alloy.MetalType;
+import net.minecraft.item.Item;
 
-public class StainlessSteelItem extends AlloyItem {
-    private MetalType firstIngredient;
-    private MetalType secondIngredient;
-    private MetalType thirdIngredient;
-    private MetalType forthIngredient;
-
-
+public class StainlessSteelItem extends Item {
     public StainlessSteelItem(Settings settings) {
         super(settings);
     }

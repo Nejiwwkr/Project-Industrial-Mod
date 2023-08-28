@@ -1,6 +1,6 @@
 package net.nejiwwkr.project_industrial.util.interfaces;
 
-public interface Translatable {
+public sealed interface Translatable permits MColor {
     String COLOR_TEXT_PREFIX = "color.project_industrial.";
     String ITEM_TEXT_PREFIX = "item.project_industrial.";
     String BLOCK_TEXT_PREFIX = "block.project_industrial.";

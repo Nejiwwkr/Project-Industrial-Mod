@@ -1,4 +1,4 @@
-package net.nejiwwkr.project_industrial.item.instances;
+package net.nejiwwkr.project_industrial.item.tools;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;

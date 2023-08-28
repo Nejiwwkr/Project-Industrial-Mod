@@ -13,6 +13,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 public class AlloyRecipeSerializer implements RecipeSerializer<AlloyRecipe> {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 

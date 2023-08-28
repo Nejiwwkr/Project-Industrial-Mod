@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+@Deprecated
 public class AlloyRecipe implements Recipe<Inventory> {
     private final Identifier id;
     private final Ingredient base;

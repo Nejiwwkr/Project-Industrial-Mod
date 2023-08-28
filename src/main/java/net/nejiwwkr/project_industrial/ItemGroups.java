@@ -81,6 +81,7 @@ public class ItemGroups {
                 for (Item i : ITEMS) stacks.add(new ItemStack(i));
             });
 
+    @Essential
     public static void init() {
         PROJECT_INDUSTRIAL_ITEM_GROUP_BASIC.build();
         PROJECT_INDUSTRIAL_ITEM_GROUP_CONSTRUCTION.build();

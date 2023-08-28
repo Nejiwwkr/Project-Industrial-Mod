@@ -36,7 +36,9 @@ public class AlloyFurnaceBlockScreen extends HandledScreen<AlloyFurnaceBlockScre
         fuelLeft = this.handler.getFuelLeft();
         fuelTotal = this.handler.getFuelTotal();
 
+        //制作进度条动画
         if (cookTime != 0) this.drawTexture(matrices,i + 101,j + 38,176,0,(tick * 24)/cookTime,17);
+        //燃料剩余进度条
         if (fuelTotal != 0) this.drawTexture(matrices, i + 7, j + 40, 0, 166, (fuelLeft * 90)/fuelTotal, 7);
     }
 

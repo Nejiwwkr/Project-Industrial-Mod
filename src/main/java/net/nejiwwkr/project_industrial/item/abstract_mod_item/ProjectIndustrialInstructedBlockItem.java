@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ProjectIndustrialInstructedBlockItem extends BlockItem implements Instructed<ProjectIndustrialInstructedBlockItem>{
     private boolean instruct = false;
@@ -54,6 +55,27 @@ public class ProjectIndustrialInstructedBlockItem extends BlockItem implements I
         this.instruct = true;
         this.informationAvailable = true;
         this.Information = info;
+        return this;
+    }
+
+    @Override
+    public ProjectIndustrialInstructedBlockItem appendTips(Text... tips) {
+        if (!tipAvailable) setTips(tips);
+        Tips = Stream.concat(Arrays.stream(Tips),Arrays.stream(tips)).toArray(Text[]::new);
+        return this;
+    }
+
+    @Override
+    public ProjectIndustrialInstructedBlockItem appendSummary(Text... sum) {
+        if (!summaryAvailable) setTips(sum);
+        Summary = Stream.concat(Arrays.stream(Summary),Arrays.stream(sum)).toArray(Text[]::new);
+        return this;
+    }
+
+    @Override
+    public ProjectIndustrialInstructedBlockItem appendInformation(Text... info) {
+        if (!informationAvailable) setTips(info);
+        Information = Stream.concat(Arrays.stream(Information),Arrays.stream(info)).toArray(Text[]::new);
         return this;
     }
 

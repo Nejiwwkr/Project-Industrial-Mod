@@ -15,4 +15,5 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.FIELD,ElementType.CONSTRUCTOR,ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.SOURCE)
 public @interface Dangerous {
+    int level() default 0;
 }

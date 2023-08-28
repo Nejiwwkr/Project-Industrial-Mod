@@ -33,31 +33,31 @@ public class AlloyFurnaceBlockScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(this.inv,0,8,20){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return true;
+                return !isFuel(stack) && (stack.getItem() != BORAX);
             }
         });
         this.addSlot(new Slot(this.inv,1,26,20){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return true;
+                return !isFuel(stack) && (stack.getItem() != BORAX);
             }
         });
         this.addSlot(new Slot(this.inv,2,44,20){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return true;
+                return !isFuel(stack) && (stack.getItem() != BORAX);
             }
         });
         this.addSlot(new Slot(this.inv,3,62,20){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return true;
+                return !isFuel(stack) && (stack.getItem() != BORAX);
             }
         });
         this.addSlot(new Slot(this.inv,4,80,20){
             @Override
             public boolean canInsert(ItemStack stack) {
-                return true;
+                return !isFuel(stack) && (stack.getItem() != BORAX);
             }
         });
 
@@ -91,6 +91,7 @@ public class AlloyFurnaceBlockScreenHandler extends ScreenHandler {
         for (i = 0;i <9;++i) {
             this.addSlot(new Slot(playerInventory,i,8 + i*18,142));
         }
+        //TODO 中途拿出物品
     }
 
     public boolean canUse(PlayerEntity player) {

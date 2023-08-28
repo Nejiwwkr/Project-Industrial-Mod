@@ -17,6 +17,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MusicDiscItem;
 import net.minecraft.potion.Potion;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
@@ -40,7 +42,10 @@ import net.nejiwwkr.project_industrial.fluid.ModFluids;
 import net.nejiwwkr.project_industrial.item.*;
 import net.nejiwwkr.project_industrial.item.abstract_mod_item.InstructType;
 import net.nejiwwkr.project_industrial.item.abstract_mod_item.ProjectIndustrialInstructedBlockItem;
-import net.nejiwwkr.project_industrial.item.instances.Tools;
+import net.nejiwwkr.project_industrial.item.alloy.AlloyIngotItem;
+import net.nejiwwkr.project_industrial.item.alloy.AlloyNuggetItem;
+import net.nejiwwkr.project_industrial.item.tools.Tools;
+import net.nejiwwkr.project_industrial.recipes.AlloyIngotToNuggetRecipe;
 import net.nejiwwkr.project_industrial.screen.handler.AlloyFurnaceBlockScreenHandler;
 import net.nejiwwkr.project_industrial.util.C;
 import net.nejiwwkr.project_industrial.util.OverworldMetalUtil;
@@ -86,7 +91,9 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Item NICKEL_INGOT = new IngotItem(MetalType.NICKEL);
 
 	//Stainless Steel
-	public static final Item STAINLESS_STEEL_INGOT = new Item(new FabricItemSettings());
+	public static final Item STAINLESS_STEEL_INGOT = new StainlessSteelItem(new FabricItemSettings());
+	public static final Item ALLOY_INGOT = new AlloyIngotItem(new FabricItemSettings());
+	public static final Item ALLOY_NUGGET = new AlloyNuggetItem(new FabricItemSettings());
 
 	public static final Item MAGIC_STICK = new MagicStickItem(new FabricItemSettings().maxCount(1));
 
@@ -198,6 +205,8 @@ public class ProjectIndustrialMod implements ModInitializer {
 	public static final Enchantment PLASMA_ENCHANTMENT = new PlasmaEnchantment();
 	public static final Enchantment MERCIFUL_ENCHANTMENT = new MercifulEnchantment();
 
+	public static final RecipeSerializer<AlloyIngotToNuggetRecipe> ALLOY_INGOT_TO_NUGGET_RECIPE_SERIALIZER = RecipeSerializer.register("alloy_ingot_to_nugget",new SpecialRecipeSerializer<>(AlloyIngotToNuggetRecipe::new));
+
 	static {
 		//noinspection deprecation
 		AF_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(C.MOD_ID,"alloy_furnace"), AlloyFurnaceBlockScreenHandler::new);
@@ -240,6 +249,8 @@ public class ProjectIndustrialMod implements ModInitializer {
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"magic_stick"),MAGIC_STICK);
 
 		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"stainless_steel"), STAINLESS_STEEL_INGOT);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"alloy_ingot"), ALLOY_INGOT);
+		Registry.register(Registry.ITEM,new Identifier(C.MOD_ID,"alloy_nugget"), ALLOY_NUGGET);
 
 		//BORON
 		Registry.register(Registry.BLOCK,new Identifier(C.MOD_ID,"boron_stone"),BORON_STONE);

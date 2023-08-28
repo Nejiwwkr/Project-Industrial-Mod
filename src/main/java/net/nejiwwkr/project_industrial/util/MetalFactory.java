@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.nejiwwkr.project_industrial.util.annotation.Essential;
+import net.nejiwwkr.project_industrial.util.exception.ProjectIndustrialModRuntimeException;
+import org.jetbrains.annotations.Contract;
 
 import static net.nejiwwkr.project_industrial.util.OverworldMetalUtil.CreateOverworldOreAndRegistryFeatures;
 
@@ -24,9 +26,11 @@ public class MetalFactory {
     private Block metalReagent;
     private BlockItem metalReagentItem;
     private final MetalPos pos;
-    private boolean initInvoked = false;
 
+    @Contract("_, null -> fail")
     MetalFactory(MetalPos pos,String metalName) {
+        if (pos == null) pos = MetalPos.OVERWORLD;
+        if (metalName == null) throw new ProjectIndustrialModRuntimeException("null name for metal factory",this);
         this.metalName = metalName;
         this.pos = pos;
     }
@@ -77,12 +81,7 @@ public class MetalFactory {
     @Essential
     public void init() {
         OverworldMetalUtil.RegistryOverworldMetalRelatives(metalName,rawMetal, rawMetalWithCoal, metalIngot, metalNugget, metalOre, metalOreItem, deepslateMetalOre, deepslateMetalOreItem, rawMetalBlock, rawMetalBlockItem, metalBlock, metalBlockItem, metalReagent, metalReagentItem);
-        this.initInvoked = true;
     }
-
-    //static {
-    //    for (MetalFactory m : OverworldMetalUtil.INSTANCES) if (!m.initInvoked) throw new EssentialMethodNotInvokedException(MetalFactory.class);
-    //}
 }
 
 enum MetalPos {

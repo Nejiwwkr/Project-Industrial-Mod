@@ -35,6 +35,7 @@
   "item.project_industrial.nickel_crucible": "镍坩埚",
   "item.project_industrial.molybdenum_calcine":"钼焙砂",
   "item.project_industrial.molybdenum_reagent":"钼反应物",
+  "item.project_industrial.alloy_ingot": "合金锭",
   "block.project_industrial.lead_glass":"铅玻璃",
   "block.project_industrial.lead_glass.tips":"质感厚重，更加透明的同时边框也更加醒目",
 
@@ -139,5 +140,18 @@
   "project_industrial.sum.l": "按住",
   "project_industrial.sum.r": "查看概要",
   "project_industrial.info.l": "按住",
-  "project_industrial.info.r": "查看详细信息"
+  "project_industrial.info.r": "查看详细信息",
+
+  "project_industrial.has_side_ingredient": "附加材料: ",
+  "project_industrial.alloy_usage": "作用: ",
+  "project_industrial.alloy_usage.on_tool": "作为工具材料时: ",
+  "project_industrial.alloy_usage.on_armor": "作为盔甲材料时: ",
+  "project_industrial.alloy.main_ingredient.iron": "铁基底",
+  "project_industrial.alloy_usage.iron.on_tool": "增加20%挖掘速度, 增加30%耐久值",
+  "project_industrial.alloy_usage.iron.on_armor": "减免20%化学性伤害, 增加30%耐久值",
+  "project_industrial.alloy.main_ingredient.manganese": "锰基底",
+  "project_industrial.alloy.side_ingredient.coal": "碳",
+  "project_industrial.alloy.side_ingredient.molybdenum": "钼",
+  "project_industrial.alloy.side_ingredient.manganese": "锰",
+  "project_industrial.alloy.side_ingredient.nickel": "镍"
 }

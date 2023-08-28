@@ -18,6 +18,12 @@ public interface Instructed<T extends Item> {
     @CanIgnoreReturnValue
     T setSummary(Text... sum);
     @CanIgnoreReturnValue
+    T appendInformation(Text... info);
+    @CanIgnoreReturnValue
+    T appendTips(Text... tips);
+    @CanIgnoreReturnValue
+    T appendSummary(Text... sum);
+    @CanIgnoreReturnValue
     T setInformation(Text... info);
     @Essential
     void appendToolInstruct(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context, InstructType... type);

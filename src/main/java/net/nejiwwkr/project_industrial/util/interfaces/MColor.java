@@ -9,7 +9,7 @@ import net.nejiwwkr.project_industrial.item.ChemicalItemWithColor;
  * @since 1.0.0
  * @author Nejiwwkr
  */
-public interface MColor extends Translatable {
+public non-sealed interface MColor extends Translatable {
     default int getColor() {
         return 0xff0000;
     }

@@ -1,0 +1,6 @@
+.java linguist-language=Java
+.kt linguist-language=Kotlin
+.json linguist-language=Java
+.puml linguist-language=Java
+.mcfunction linguist-language=Minecraft Function
+.nbt linguist-language=Minecraft NBT
